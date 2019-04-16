@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" charset="utf-8">
+	<title>数据治理</title>
+	<link rel="stylesheet" href="css/common.css" />
+	<link rel="stylesheet" href="css/base.css" />
+	<link rel="stylesheet" href="css/fixed_source.css" />
+	<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+</head>
+
+<body class="body1">
+	<script>
+		$(function () {
+			autoFit();
+			// var winratio = $(window).width() / 1920;
+			// $('.header').css({
+			// 	transform: "scale(" + winratio + ")",
+			// 	transformOrigin: "left top",
+			// });
+		})
+	</script>
+	<header class="header">
+		<p class="logo">
+			<img src="./img/logo.png" />内蒙古自治区生态环境大数据管理平台
+		</p>
+		<!-- 头部导航 -->
+		<div class="nav">
+			<ul>
+				<li class="NavLi ">
+					<p class="NavTheme">首页</p>
+				</li>
+				<li class="NavLi">
+					<p class="NavTheme">资源目录</p>
+				</li>
+				<li class="NavLi">
+					<p class="NavTheme">数据集成交换</p>
+				</li>
+				<li class="NavLi active">
+					<p class="NavTheme">数据治理</p>
+				</li>
+				<li class="NavLi">
+					<p class="NavTheme">数据服务</p>
+				</li>
+				<li class="NavLi">
+					<p class="NavTheme">数据监控</p>
+				</li>
+				<li class="NavLi">
+					<p class="NavTheme">运维管理</p>
+				</li>
+
+			</ul>
+			<!-- <div class="people-info">
+				<i class="line"></i>
+				<p>欢迎您Admin</p>
+				<a href="#" title="注销"></a>
+			</div> -->
+		</div>
+	</header>
+	<!-- 中间主体 -->
+	<section class="section FlexBlock">
+
+		<div class="TitleDiv">
+			<div class="FloatLeft TitleLeftDiv">
+				<span class="titleIcon"></span>
+				<span class="TitleFont">固定源治理</span>
+			</div>
+			<div class="FloatRight TitleRightDiv">
+				<span class="span">固定源名录</span>
+				<span class="span">8460</span>
+				<span class="span">家</span>
+			</div>
+		</div>
+
+		<div class="CanvasBox">
+			<canvas class="canvas" id="FixedResCanvas" width='1800' height="500"></canvas>
+		    <!-- <div class="CanvasTitle">各业务数据与固定源名录匹配整合情况</div> -->
+		</div>
+		<div class="TableBox">
+			<div class="FakeHeader">
+
+			</div>
+			<table class="table">
+				<thead class="thead">
+					<tr>
+						<td>序号</td>
+						<td>业务分类</td>
+						<td>企业总数（个）</td>
+						<td>已匹配数量（个）</td>
+						<td>目录库匹配占比（%）</td>
+					</tr>
+				</thead>
+				<tbody class="tbody">
+					<tr>
+						<td>1</td>
+						<td>环境统计</td>
+						<td>5023</td>
+						<td>5023</td>
+						<td>60.23</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>环境统计</td>
+						<td>5023</td>
+						<td>5023</td>
+						<td>60.23</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>环境统计</td>
+						<td>5023</td>
+						<td>5023</td>
+						<td>60.23</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>环境统计</td>
+						<td>5023</td>
+						<td>5023</td>
+						<td>60.23</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>环境统计</td>
+						<td>5023</td>
+						<td>5023</td>
+						<td>60.23</td>
+					</tr>
+
+					<tr>
+						<td>6</td>
+						<td>环境统计</td>
+						<td>5023</td>
+						<td>5023</td>
+						<td>60.23</td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td>环境统计</td>
+						<td>5023</td>
+						<td>5023</td>
+						<td>60.23</td>
+					</tr>
+					<tr>
+						<td>8</td>
+						<td>环境统计</td>
+						<td>5023</td>
+						<td>5023</td>
+						<td>60.23</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<!-- 底部 -->
+	<!-- <footer class="footer FlexBlock">
+		<p class="point" id="LeftPoint">数据汇聚</p>
+		<div class="progress flex1">
+			<div class="innerRadio">
+			</div>
+			<div class="light"></div>
+		</div>
+		<p class="point" id="RightPoint">数据服务</p>
+	</footer> -->
+    
+	<script type="text/javascript" src="./js/echarts.min.js"></script>
+	<script type="text/javascript" src="./js/fixed_source.js"></script>
+</body>
+
+</html>

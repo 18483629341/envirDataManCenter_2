@@ -1,0 +1,130 @@
+/* CSS Document */
+
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+ul,
+li,
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+dl,
+dt,
+dd,
+input {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	color: #333;
+	text-decoration: none;
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'Microsoft yahei';
+}
+
+img {
+	vertical-align: middle;
+	border: 0;
+}
+
+.FlexBlock{
+	display: flex;
+	display: -webkit-box; 
+   display: -moz-box;  
+   display: -ms-flexbox; 
+   display: -webkit-flex; 
+}
+.flex1{
+   flex: 1
+}
+.InlineBlock{
+	display: inline-block;
+}
+.clear{
+	clear: both;
+}
+.FloatLeft{
+	float: left;
+}
+.FloatRight{
+	float: right;
+}
+.AlignRight{
+	text-align: right!important;
+}
+.icon{
+	display: inline-block;
+}
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Microsoft yahei';
+	background-color: rgb(0,4,48);
+}
+.body1{
+	width: 1920px;
+    overflow-y: scroll;
+    background-color: #00052f;
+    background-image: url(../img/all_bg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    overflow-x: hidden;
+    background-position: center -110px;
+}
+.body1::-webkit-scrollbar{
+	display: none;
+}
+/* 框架布局*/
+.section{
+	padding:0 50px;
+	.ListBox{
+	   width:235px;
+	   //border:1px solid lightblue;
+	}
+	
+	.leftListBox{
+		
+		width:100px;
+		min-height: 720px;
+		//border:1px solid lightblue;
+	}
+	.LineList{
+		width:142px;
+		margin-top: 140px;
+		//border:1px solid lightcoral;
+	}
+	.CenterBox{
+	    flex: 1;
+		
+	}
+	.CenterContent{
+		width:1005px;
+		height:100%;
+		margin:0 auto;
+		//border:1px solid lawngreen;
+	}
+	.CenterHeader{
+		height:228px;
+		//border:1px solid rgb(185, 252, 0);
+	}
+	.CenterMain{
+		height:440px;
+		transform:scale(0.9);
+		transform-origin: 50% 33%;
+		//border:1px solid rgb(185, 252, 0);
+	}
+}
+.footer{
+	width: 100%;
+	padding: 0 60px;
+	height:50px;
+	//border:1px solid lightcoral;
+}

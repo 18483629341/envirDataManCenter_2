@@ -1,0 +1,125 @@
+.body1 {
+  background: #f3f3f3;
+}
+/*整体布局*/
+.section {
+  width: 1800px;
+  padding: 0 0 60px 0;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.section .TitleDiv {
+  height: 86px;
+}
+.section .CanvasBox {
+  position: relative;
+  height: 500px;
+  background: #fff;
+}
+.section .CanvasBox .canvas {
+  width: 100%;
+  height: 100%;
+}
+.section .TableBox {
+  width: 100%;
+  height: 550px;
+}
+.section .TableBox .table {
+  text-align: center;
+}
+/*TitleDiv样式*/
+.TitleDiv {
+  width: 100%;
+  padding-top: 16px;
+}
+.TitleDiv .TitleLeftDiv {
+  width: 50%;
+  height: 70px;
+  line-height: 70px;
+}
+.TitleDiv .TitleLeftDiv .titleIcon {
+  display: inline-block;
+  width: 34px;
+  height: 27px;
+  background: url(../img/second_period/title_dot.png);
+  position: relative;
+  top: 6px;
+}
+.TitleDiv .TitleLeftDiv .TitleFont {
+  font-weight: 700;
+  font-size: 24px;
+  color: #010d1f;
+}
+.TitleDiv .TitleRightDiv {
+  width: 45%;
+}
+.TitleDiv .TitleRightDiv .span:nth-child(1) {
+  color: #010d1f;
+  font-size: 18px;
+  position: relative;
+  top: -11px;
+  margin-right: 20px;
+}
+.TitleDiv .TitleRightDiv .span:nth-child(2) {
+  color: #0096ff;
+  line-height: 70px;
+  font-size: 56px;
+  font-family: '液晶数字字体';
+}
+.TitleDiv .TitleRightDiv .span:nth-child(3) {
+  color: #010d1f;
+  font-weight: 700;
+  font-size: 16px;
+  margin-right: 2px;
+}
+/*table样式*/
+.TableBox {
+  margin-top: 45px;
+  padding-bottom: 60px;
+  background: #fff;
+}
+.TableBox .FakeHeader {
+  width: 100%;
+  margin: 0 auto;
+  height: 50px;
+  background: #dfdfdf;
+}
+.TableBox .table {
+  border-spacing: 0px;
+  width: 95%;
+  margin: 0 auto;
+  position: relative;
+  top: -50px;
+}
+.TableBox .table .thead {
+  color: #413a3a;
+}
+.TableBox .table .thead tr {
+  height: 50px;
+  padding: 0 30px;
+}
+.TableBox .table .tbody tr:nth-child(odd) {
+  background: #fff;
+}
+.TableBox .table .tbody tr:nth-child(even) {
+  background: #f6fafd;
+}
+.TableBox .table .tbody td {
+  width: 20%;
+  font-size: 16px;
+  color: #010d1f;
+  font-weight: 700;
+  border: none;
+}
+.TableBox .table .tbody tr {
+  height: 55px;
+}
+.TableBox .table .tbody tr td:nth-child(1) {
+  width: 10%;
+}
+.TableBox .table .tbody tr td:nth-child(2) {
+  width: 30%;
+}
+.TableBox .table .tbody tr td:nth-child(4) {
+  color: #0096ff;
+}
