@@ -106,10 +106,25 @@
   border: none;
   width: 180px;
   background: transparent;
-  color: #fff;
+  color: #ededed;
   height: 30px;
   position: relative;
   top: -2px;
+}
+.SearchCon .searchBox .inputBox input::-webkit-input-placeholder {
+  color: #ededed;
+}
+.SearchCon .searchBox .inputBox input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #ededed;
+}
+.SearchCon .searchBox .inputBox input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #ededed;
+}
+.SearchCon .searchBox .inputBox input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #ededed;
 }
 .SearchCon .searchBox .searchBtn {
   display: inline-block;
@@ -121,11 +136,16 @@
   cursor: pointer;
   margin-right: 30px;
 }
+input:focus {
+  border: none;
+  outline: none;
+}
 /* 信息资源组   */
 .WellBox {
   flex-direction: row;
   -webkit-flex-direction: row;
   background: #fbfbff;
+  box-shadow: -1px 1px 10px 0px rgba(232, 232, 232, 0.4);
 }
 .WellBox .InfoRes {
   background-color: #00c8c1;
@@ -144,6 +164,7 @@
   line-height: 36px;
   font-size: 16px;
   color: #fff;
+  font-weight: 700;
 }
 .WellBox .InfoRes.active,
 .WellBox .InfoRes:hover {
@@ -184,13 +205,6 @@
 .WellBox .OutterInfoRes:hover .ThemeIcon {
   background: url(../img/second_period/tab_icon4_on.png) no-repeat;
 }
-.InfoResContent {
-  padding-top: 32px;
-  border-right: 1px solid #e6e6e6;
-}
-.InfoResContent .list .li {
-  width: 49%;
-}
 .list .li {
   display: inline-block;
   height: 48px;
@@ -211,6 +225,13 @@
   top: 18px;
   left: 40px;
 }
+.InfoResContent {
+  padding-top: 32px;
+  border-right: 1px solid #e6e6e6;
+}
+.InfoResContent .list .li {
+  width: 49%;
+}
 .InfoResContent.active {
   display: block;
 }
@@ -219,6 +240,7 @@
   background: #fff;
   border-top: 2px solid #00c8c1;
   padding: 30px;
+  box-shadow: -1px 1px 10px 0px rgba(232, 232, 232, 0.4);
 }
 .HotContent .HotHeader {
   height: 75px;
@@ -263,6 +285,10 @@
 }
 .HotContent .list .li {
   width: 98%;
+  padding-left: 16px;
+}
+.HotContent .list .li::after {
+  left: 0px;
 }
 .HotContent .MoreBox {
   height: 60px;

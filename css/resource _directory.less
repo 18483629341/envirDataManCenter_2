@@ -127,10 +127,22 @@
                 border: none;
                 width:180px;
                 background: transparent;
-                color: #fff;
+                color: #ededed;
                 height: 30px;
                 position: relative;
                 top: -2px;
+            }
+            input::-webkit-input-placeholder{
+                color: #ededed;
+            }
+            input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+                color: #ededed;
+            }
+            input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+                color: #ededed;
+            }
+            input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
+                color: #ededed;
             }
         }
         .searchBtn{
@@ -147,12 +159,20 @@
 	}
    
 }
+input::-internal-autofill-selected{
+    //background-color: #fff!important;
+}
+input:focus{
+	border:none;
+	outline: none;
+}
     /* 信息资源组   */
 
 .WellBox{
     flex-direction: row;
     -webkit-flex-direction: row;
     background: #fbfbff;
+    box-shadow: -1px 1px 10px 0px rgba(232, 232, 232, 0.4);
     .InfoRes{
         background-color: @mainColor;
         text-align: center;
@@ -169,6 +189,7 @@
             line-height: 36px;
             font-size: 16px;
             color:#fff;
+            font-weight: 700;
         }
     }
     .InfoRes.active,.InfoRes:hover{
@@ -226,16 +247,6 @@
     }
 }
 
-.InfoResContent{
-    padding-top:32px;
-    border-right:1px solid #e6e6e6;
-    .list{
-        .li{
-            width: 49%;
-        }
-    }
-}
- 
 .list{
     .li{
         display: inline-block;
@@ -259,6 +270,18 @@
     }
 
 }
+.InfoResContent{
+    padding-top:32px;
+    border-right:1px solid #e6e6e6;
+    .list{
+        .li{
+            width: 49%;
+           
+        }
+    }
+}
+ 
+
 
 .InfoResContent.active{
     display: block;
@@ -269,6 +292,7 @@
     background: #fff;
     border-top: 2px solid @mainColor;
     padding:30px;
+    box-shadow: -1px 1px 10px 0px rgba(232, 232, 232, 0.4);
     .HotHeader{
         height: 75px;
         .HotIcon{
@@ -313,6 +337,10 @@
     .list{
         .li{
             width: 98%;
+            padding-left: 16px;
+        }
+        .li::after{
+            left:0px;
         }
     }
     .MoreBox{
