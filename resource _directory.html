@@ -12,12 +12,13 @@
 	<script type="text/javascript" src="./js/main.js"></script>
 </head>
 
-<body class="body1 flexBlock">
+<body class="body1 FlexBlock">
 	<script>
 		$(function () {
 			autoFit();
 		})
 	</script>
+	
 	<header class="header">
 		<p class="logo">
 			<img src="./img/logo.png" />内蒙古自治区生态环境大数据管理平台
@@ -25,10 +26,10 @@
 		<!-- 头部导航 -->
 		<div class="nav">
 			<ul>
-				<li class="NavLi active">
+				<li class="NavLi ">
 					<p class="NavTheme">首页</p>
 				</li>
-				<li class="NavLi">
+				<li class="NavLi active">
 					<p class="NavTheme">资源目录</p>
 				</li>
 				<li class="NavLi">
@@ -55,17 +56,165 @@
 			</div> -->
 		</div>
 	</header>
-    <!-- 中间主体 -->
-	<section class="section FlexBlock">
-		
-	  
+	<!-- 中间主体 -->
+	<section class="section ">
+		<!-- section背景 -->
+		<div class="TitleBack"></div>
+		<!-- 中间主题内容容器 -->
+		<div class="SectionContent">
+			<!-- 头部数据表示 -->
+			<div class="SearchCon FlexBlock">
+				<div class="flex1">
+					<p class='textP'>
+						<span class="bannerIcon"></span>
+						<span class="textSpan">已发布：
+							<b class="outFont">9</b>个资源目录大类，
+							<b class="outFont">42</b>个资源小类，共
+							<b class="outFont">785</b>个数据集，
+							<b class="outFont">148</b>个库表，
+							<b class="outFont">128</b>个文件，
+							<b class="outFont">21</b>个接口
+						</span>
+					</p>
+				</div>
+				<div class="searchBox FlexBlock">
+					<div class="flex1 inputBox">
+						<input class="textInput" type="text" placeholder='请输入您想搜索的资源目录' />
+					</div>
+					<div class="searchBtn"></div>
+				</div>
+			</div>
+			<div class="WellBox FlexBlock">
+				<div class="InfoRes BusinessInfoRes active" data-theme="BusinessInfoRes">
+					<div class="ThemeIcon"></div>
+					<p class="ThemeText">业务信息资源</p>
+				</div>
+				<div class="InfoResContent  active" data-theme="BusinessInfoRes">
+					<ul class="list">
+						<li class="li">地表水环境质量信息</li>
+						<li class="li">环境管理业务信息</li>
+						<li class="li">大气环境质量信息</li>
+						<li class="li">自然生态环境信息</li>
+						<li class="li">污染源信息</li>
+					</ul>
+				</div>
+				<div class="InfoRes ThemeInfoRes" data-theme="ThemeInfoRes">
+					<div class="ThemeIcon"></div>
+					<p class="ThemeText">主题信息资源</p>
+				</div>
+				<div class="InfoResContent " data-theme="ThemeInfoRes">
+					<ul class="list">
+						<li class="li">地表水环境质量信息</li>
+						<li class="li">环境管理业务信息</li>
+						<li class="li">大气环境质量信息</li>
+						<li class="li">自然生态环境信息</li>
+						<li class="li">污染源信息</li>
+					</ul>
+				</div>
+				<div class="InfoRes DepartInfoRes" data-theme="DepartInfoRes">
+					<div class="ThemeIcon"></div>
+					<p class="ThemeText">部门信息资源</p>
+				</div>
+				<div class="InfoResContent " data-theme="DepartInfoRes">
+					<ul class="list">
+						<li class="li">地表水环境质量信息</li>
+						<li class="li">环境管理业务信息</li>
+						<li class="li">大气环境质量信息</li>
+						<li class="li">自然生态环境信息</li>
+						<li class="li">污染源信息</li>
+					</ul>
+				</div>
+				<div class="InfoRes OutterInfoRes" data-theme="OutterInfoRes">
+					<div class="ThemeIcon"></div>
+					<p class="ThemeText">外部信息资源</p>
+				</div>
+				<div class="InfoResContent " data-theme="OutterInfoRes">
+					<ul class="list">
+						<li class="li">地表水环境质量信息</li>
+						<li class="li">环境管理业务信息</li>
+						<li class="li">大气环境质量信息</li>
+						<li class="li">自然生态环境信息</li>
+						<li class="li">污染源信息</li>
+					</ul>
+				</div>
+			</div>
+			<div class="HotBox FlexBlock">
+				<div class="HotContent">
+					<div class="HotHeader">
+						<div class="HotIcon HotResIcon"></div>
+						<div class="HotTitleBox">
+							<p class="ChiTitle">热门资源</p>
+							<p class="EngTitle">Hot Resource</p>
+						</div>
+					</div>
+					<div class="HotListBox">
+						<ul class="list">
+							<li class="li">地表水手工监测数据</li>
+							<li class="li">城市空气质量日报</li>
+							<li class="li">环境统计</li>
+							<li class="li">自然生态环境信息</li>
+						</ul>
+					</div>
+					<div class="MoreBox ">
+						<a href="#">
+							<span class="MoreBtn active" target="_blank">查看更多</span>
+						</a>
+					</div>
+				</div>
+				<div class="HotContent">
+					<div class="HotHeader">
+						<div class="HotIcon HotAPIIcon"></div>
+						<div class="HotTitleBox">
+							<p class="ChiTitle">热门接口服务</p>
+							<p class="EngTitle">Hot API</p>
+						</div>
+					</div>
+					<div class="HotListBox">
+						<ul class="list">
+							<li class="li">地表水手工监测数据</li>
+							<li class="li">城市空气质量日报</li>
+							<li class="li">环境统计</li>
+							<li class="li">自然生态环境信息</li>
+						</ul>
+					</div>
+					<div class="MoreBox">
+						<a href="#">
+							<span class="MoreBtn " target="_blank">查看更多</span>
+						</a>
+					</div>
+
+				</div>
+				<div class="HotContent">
+					<div class="HotHeader">
+						<div class="HotIcon HotCatIcon"></div>
+						<div class="HotTitleBox">
+							<p class="ChiTitle">热门目录</p>
+							<p class="EngTitle">Hot Catalog</p>
+						</div>
+					</div>
+					<div class="HotListBox">
+						<ul class="list">
+							<li class="li">地表水手工监测数据</li>
+							<li class="li">城市空气质量日报</li>
+							<li class="li">环境统计</li>
+							<li class="li">自然生态环境信息</li>
+						</ul>
+					</div>
+					<div class="MoreBox">
+						<a href="#">
+							<span class="MoreBtn" target="_blank">查看更多</span>
+						</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
 	</section>
 	<!-- 底部 -->
 	<footer class="footer FlexBlock">
-		技术支持：北京思路创新科技有限公司
+		<p> 技术支持：北京思路创新科技有限公司</p>
 	</footer>
-
-	<script type="text/javascript" src="./js/roll_translate.js"></script>
 	<script type="text/javascript" src="./js/resource _directory.js"></script>
 </body>
 

@@ -135,31 +135,32 @@ var optionBar = { //样式设置相关
             barWidth:'6%',
             itemStyle: {
                 normal: {
-                    color: 'red'
+                    color: 'transparent'
                 }
             },
             
         },
-       
-        
         {
             name: '名录总数',
             type: 'bar',
             data:  fixedSrcData.yData[2],//fixedSrcData.totalDirectoriesNumber
-            barWidth:'1%',
+            barWidth:'.1%',
             legendHoverLink: true,
             itemStyle: {
                 normal: {
-                    color: '#ff9000',
+                    color: 'transparent',
                     barBorderRadius: 6.5,
-                    marginleft:'5%'
+                   // marginleft:'5%'
+                   borderColor:"#ff9000",
+                   borderType:"dashed",
                 }
             },
             cursor:"pointer",
-            barGap: '-18%',
+            barGap: '-100%',
             progressive: 5000,
             label:{
                 show: true,
+                type:"rect",
                 padding:5,
                 position:'top',
                 textStyle:{

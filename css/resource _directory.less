@@ -1,17 +1,340 @@
+@mainColor:#00c8c1;
 /*整体布局*/
+
+.body1{
+    //width:100%;
+    flex-direction: column;
+    background: #010d1f;
+    //.header{
+        //width:1920px;
+    //}
+    animation: all 1s linear;
+}
+
 .section{
-    width:1800px;
+    padding:0;
+    
+    min-height:950px;
+    width:100%;
+    position: relative;
+    background-color: #fbfbff;
+    background-image: url(../img/second_period/banner.png) ;
+    background-repeat:no-repeat; 
+    background-size:1920px 378px;
+    // .TitleBack{
+    //     position: absolute;
+    //     top:0;
+    //     width:100%;
+    //     height:380px;
+    //     background: url(../img/second_period/banner.png) no-repeat;
+    //     background-size: 100% 100%;
+    //     z-index: -1;
+    // }
+    
+   
+}
+.SectionContent{
+    width:1200px;
     margin: 0 auto;
+    padding-top:20px;
+    .SearchCon{
+        // margin-top: 20px;
+        height:52px;
+        margin-bottom: 190px;
+        border:1px solid #0f3044;
+    }
+    .WellBox{
+        width:100%;
+        height:200px;
+        margin-bottom: 40px;
+    }
+    .InfoRes{
+        width:180px;
+        height:100%;
+    }
+    .InfoResContent{
+        background: #fff;
+        flex:1;
+        display: none;
+    }
+    .HotBox{
+        width:100%;
+        height:405px;
+        margin-bottom: 40px;
+        flex-direction: row;
+       -webkit-flex-direction: row;
+        .HotContent{
+            flex: 1;
+            height: 100%;
+        }
+        .HotContent+ .HotContent{
+            margin-left: 43px;
+        }
+    }
     
 }
-.TitleDiv{
+.footer{
+	// width: 100%;
+    // padding: 0 60px;
+    background: #010d1f;
+    p{
+        width: 100%;
+        height:50px;
+        line-height: 50px;
+        color: #ffffff;
+        text-align: center;
+    }
+    
+}
+/*具体细节样式*/
+   /* 头部数据表示  */
+.SearchCon{
+    border:1px solid #3a4451;
+    line-height: 50px;
+    background: #1f2939;
+    .textP{
+		color:#333;
+		font-size: 14px;
+        padding-left: 30px;
+        .bannerIcon{
+            display: inline-block;
+            width: 15px;
+            height: 18px;
+            position: relative;
+            background: url(../img/second_period/banner_icon.png);
+            top:4px;
+        }
+        .textSpan{
+            font-size: 14px;
+            color:#fff;
+        }
+        .outFont{
+            font-size: 16px;
+            color:#00fff6;
+        }
+    }
+    .searchBox{
+		width: 275px;
+        height:100%;
+        border-left:1px solid #3a4451;
+        .inputBox{
+            width: 260px;
+            height:50px;
+            line-height: 50px;
+            border-right: none;
+            padding-left: 30px;
+            .textInput{
+                border: none;
+                width:180px;
+                background: transparent;
+                color: #fff;
+                height: 30px;
+                position: relative;
+                top: -2px;
+            }
+        }
+        .searchBtn{
+            display: inline-block;
+            width: 22px;
+            height: 21px;
+            position: relative;
+            background: url(../img/second_period/ss_icon.png);
+            top:14px;
+            cursor: pointer;
+            margin-right: 30px;
+        }
+       
+	}
+   
+}
+    /* 信息资源组   */
+
+.WellBox{
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    background: #fbfbff;
+    .InfoRes{
+        background-color: @mainColor;
+        text-align: center;
+        padding-top:45px;
+        border-right:1px solid #e6e6e6;
+        cursor: pointer;
+        .ThemeIcon{
+            display: inline-block;
+            width:70px;
+            height:70px;
+            margin-bottom:10px; 
+        }
+        .ThemeText{
+            line-height: 36px;
+            font-size: 16px;
+            color:#fff;
+        }
+    }
+    .InfoRes.active,.InfoRes:hover{
+        background-color: #fff;
+        .ThemeText{
+            color:@mainColor;
+        }
+       
+
+    }
+    .InfoRes:last-child{
+       border-right: none;    
+    }
+   
+
+    .BusinessInfoRes{
+        .ThemeIcon{
+            background: url(../img/second_period/tab_icon1_off.png) no-repeat;
+        }
+    }
+    .BusinessInfoRes.active,.BusinessInfoRes:hover{
+        .ThemeIcon{
+            background: url(../img/second_period/tab_icon1_on.png) no-repeat;
+        }
+    }
+    .ThemeInfoRes{
+        .ThemeIcon{
+            background: url(../img/second_period/tab_icon2_off.png) no-repeat;
+        }
+    }
+    .ThemeInfoRes.active,.ThemeInfoRes:hover{
+        .ThemeIcon{
+            background: url(../img/second_period/tab_icon2_on.png) no-repeat;
+        }
+    }
+    .DepartInfoRes{
+        .ThemeIcon{
+            background: url(../img/second_period/tab_icon3_off.png) no-repeat;
+        }
+    }
+    .DepartInfoRes.active,.DepartInfoRes:hover{
+        .ThemeIcon{
+            background: url(../img/second_period/tab_icon3_on.png) no-repeat;
+        }
+    }
+    .OutterInfoRes{
+        .ThemeIcon{
+            background: url(../img/second_period/tab_icon4_off.png) no-repeat;
+        }
+    }
+    .OutterInfoRes.active,.OutterInfoRes:hover{
+        .ThemeIcon{
+            background: url(../img/second_period/tab_icon4_on.png) no-repeat;
+        }
+    }
+}
+
+.InfoResContent{
+    padding-top:32px;
+    border-right:1px solid #e6e6e6;
+    .list{
+        .li{
+            width: 49%;
+        }
+    }
+}
+ 
+.list{
+    .li{
+        display: inline-block;
+        height: 48px;
+        line-height: 48px;
+        padding-left: 56px;
+        position: relative;
+        font-size: 16px;
+        color:#333;
+        font-weight:700;
+    }
+    .li::after{
+        position: absolute;
+        display: block;
+        content:'';
+        width: 14px;
+        height: 14px;
+        background: url(../img/second_period/ziy_icon.png) no-repeat;
+        top:18px;
+        left:40px;
+    }
 
 }
-.footer{
-	width: 100%;
-	padding: 0 60px;
-    height:50px;
-    line-height: 50px;
-	background: #010d1f;
-	color: #ffffff;
+
+.InfoResContent.active{
+    display: block;
 }
+
+/* 热门组   */
+.HotContent{
+    background: #fff;
+    border-top: 2px solid @mainColor;
+    padding:30px;
+    .HotHeader{
+        height: 75px;
+        .HotIcon{
+            width: 48px;
+            height: 48px;
+            margin-right: 10px;
+            display: inline-block;
+        }
+        .HotTitleBox{
+            display: inline-block;
+            width: 220px;
+            height: 48px;
+            position: relative;
+            top: -6px;
+        }
+        .ChiTitle{
+            font-size: 20px;
+            color: #333333;
+            line-height: 26px;
+            font-weight: 700;
+        }
+        .EngTitle{
+            font-size: 16px;  
+            color: #acacac;
+            line-height: 18px;
+        }
+        .HotResIcon{
+            background: url(../img/second_period/rmzy_icon.png) no-repeat;
+        }
+        .HotAPIIcon{
+            background: url(../img/second_period/rmzy_icon-08.png) no-repeat;
+        }
+        .HotCatIcon{
+            background: url(../img/second_period/rmzy_icon-09.png) no-repeat;
+        }
+    }
+    .HotListBox{
+        border-top: 1px solid #eaeaea;
+        padding-top: 10px;
+        margin-bottom: 10px;
+    }
+    .list{
+        .li{
+            width: 98%;
+        }
+    }
+    .MoreBox{
+        height:60px;
+        text-align: center;
+        .MoreBtn{
+            display: inline-block;
+            margin-top: 10px;
+            width: 160px;
+            height: 40px;
+            line-height: 38px;
+            background-color: #fff;
+            color: @mainColor;
+            border: 1px solid @mainColor;
+            border-radius: 19px;
+            box-shadow: 0px 0px 8px 0px rgba(2, 195, 248, 0.4);
+        }
+        .MoreBtn.active,.MoreBtn:hover{
+            background-color: @mainColor;
+            color: #ffffff;
+        }
+    }
+}
+
+
