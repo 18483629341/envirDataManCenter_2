@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" charset="utf-8">
+	<title>数据治理</title>
+	<link rel="stylesheet" href="css/common.css" />
+	<link rel="stylesheet" href="css/base.css" />
+	<link rel="stylesheet" href="css/data_monitor.css" />
+	<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+</head>
+
+<body class="body1">
+	<script>
+		$(function () {
+			autoFit();
+			// var winratio = $(window).width() / 1920;
+			// $('.header').css({
+			// 	transform: "scale(" + winratio + ")",
+			// 	transformOrigin: "left top",
+			// });
+		})
+	</script>
+	<header class="header">
+		<p class="logo">
+			<img src="./img/logo.png" />内蒙古自治区生态环境大数据管理平台
+		</p>
+		<!-- 头部导航 -->
+		<div class="nav">
+			<ul>
+				<li class="NavLi ">
+					<p class="NavTheme">首页</p>
+				</li>
+				<li class="NavLi">
+					<p class="NavTheme">资源目录</p>
+				</li>
+				<li class="NavLi">
+					<p class="NavTheme">数据集成交换</p>
+				</li>
+				<li class="NavLi ">
+					<p class="NavTheme">数据治理</p>
+				</li>
+				<li class="NavLi">
+					<p class="NavTheme">数据服务</p>
+				</li>
+				<li class="NavLi active">
+					<p class="NavTheme">数据监控</p>
+				</li>
+				<li class="NavLi">
+					<p class="NavTheme">运维管理</p>
+				</li>
+
+			</ul>
+			<!-- <div class="people-info">
+				<i class="line"></i>
+				<p>欢迎您Admin</p>
+				<a href="#" title="注销"></a>
+			</div> -->
+		</div>
+	</header>
+	<!-- 中间主体 -->
+	<section class="section ">
+		<!-- 头部主题切换   -->
+		<div class="TabsDiv FlexBlock">
+			<div class="canvasTab LeftTabs">
+				<span class="tabSpan active" data-name="">总体监控</span>
+				<span class="tabSpan " data-name="">资源分类监控</span>
+				<span class="tabSpan " data-name="">部门资源监控</span>
+			</div>
+			<div class="canvasTab RightSelect">
+				<div class="InfoListContent FlexBlock polSelct" id="polSelct">
+					<div class="selectLi flex1">
+						<!-- 里面内容有 js方法initSelectlist(elementClass)  渲染 -->
+					</div>
+				</div>
+				<div class="TimeTypeBox FlexBlock">
+					<div class="TimeTypeSpan active flex1" data-name="hour">小时</div>
+					<div class="TimeTypeSpan flex1" data-name="date">日</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="ThemeContainer">
+			<div class="TitleDiv">
+				<div class="FloatLeft TitleLeftDiv">
+					<span class="titleIcon"></span>
+					<span class="TitleFont">数据 .
+						<i class="OutFont">资源</i>
+					</span>
+				</div>
+			</div>
+			<div class="ThemeContent ResourseContent">
+			</div>
+		</div>
+		<div class="ThemeContainer">
+			<div class="TitleDiv">
+				<div class="FloatLeft TitleLeftDiv">
+					<span class="titleIcon"></span>
+					<span class="TitleFont">数据 .
+						<i class="OutFont">治理</i>
+					</span>
+				</div>
+			</div>
+			<div class="ThemeContent ManageContent">
+				<table class="table">
+					<thead class="thead">
+						<tr>
+							<td>业务类型</td>
+							<td>接入数量（条）</td>
+							<td>入库频率</td>
+							<td>开始时间</td>
+							<td>最新更新时间</td>
+							<td>备注</td>
+						</tr>
+					</thead>
+					<tbody class="tbody">
+						<tr>
+							<td>空气监测评价数据</td>
+							<td>5023</td>
+							<td>5023</td>
+							<td>5023</td>
+							<td>60.23</td>
+							<td>正常接入</td>
+						</tr>
+						<tr>
+							<td>地表水水质</td>
+							<td>5023</td>
+							<td>5023</td>
+							<td>5023</td>
+							<td>60.23</td>
+							<td>异常接入</td>
+						</tr>
+						<tr>
+							<td>饮用水水源地</td>
+							<td>5023</td>
+							<td>5023</td>
+							<td>5023</td>
+							<td>60.23</td>
+							<td>正常接入</td>
+						</tr>
+						<tr>
+							<td>道路交通噪声</td>
+							<td>环境统计</td>
+							<td>5023</td>
+							<td>5023</td>
+							<td>60.23</td>
+							<td>正常接入</td>
+						</tr>
+						<tr>
+							<td>功能区噪声</td>
+							<td>环境统计</td>
+							<td>5023</td>
+							<td>5023</td>
+							<td>60.23</td>
+							<td>正常接入</td>
+						</tr>
+
+						<tr>
+							<td>噪声自动监测</td>
+							<td>5023</td>
+							<td>5023</td>
+							<td>5023</td>
+							<td>60.23</td>
+							<td>正常接入</td>
+						</tr>
+						<tr>
+							<td>道路交通噪声</td>
+							<td>2044</td>
+							<td>5023</td>
+							<td>5023</td>
+							<td>60.23</td>
+							<td>正常接入</td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="ThemeContainer">
+			<div class="TitleDiv">
+				<div class="FloatLeft TitleLeftDiv">
+					<span class="titleIcon"></span>
+					<span class="TitleFont">数据 .
+						<i class="OutFont">服务</i>
+					</span>
+				</div>
+			</div>
+			<div class="ThemeContent ServiceContent">
+			</div>
+		</div>
+		<div class="ThemeContainer">
+				<div class="TitleDiv">
+					<div class="FloatLeft TitleLeftDiv">
+						<span class="titleIcon"></span>
+						<span class="TitleFont">异常 .
+							<i class="OutFont">监控</i>
+						</span>
+					</div>
+				</div>
+				<div class="ThemeContent MonitorContent">
+				</div>
+			</div>
+	</section>
+	<!-- 底部 -->
+	<footer class="footer FlexBlock">
+		<p> 技术支持：北京思路创新科技有限公司</p>
+	</footer>
+
+	<script type="text/javascript" src="./js/echarts.min.js"></script>
+	<script type="text/javascript" src="./js/data_monitor.js"></script>
+</body>
+
+</html>
