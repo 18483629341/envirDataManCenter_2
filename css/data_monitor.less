@@ -1,271 +1,738 @@
-html{
-	font-size: 20px !important;
-}
-.body1{
-   // width: 100%;
-    background: #040a2a;
-}
-.header{
-   // width:1920px;
+@MainColor: #00fff6;
+@RadiusWidth: 4px;
+.body1 {
+    background: url(../img/second_period/bg.png);
 }
 
 /*整体布局*/
-.section{
-    width:1802px;
-    padding:0 0 50px 0;
-    margin: 0 auto;
-    // border: 1px solid red;
-    .TabsDiv{
+
+.section {
+    width: 1803px;
+    padding: 0 0 50px 0;
+    margin: 0 auto; // border: 1px solid red;
+    .TabsDiv {
         width: 100%;
-        height:65px;
-        padding-top:27px;
+        height: 65px;
+        padding-top: 25px;
         flex-direction: row;
         -webkit-flex-direction: row;
-        .LeftTabs{
-            flex:1;
+        .LeftTabs {
+            flex: 1;
         }
     }
-    .ThemeContainer{
+    .ThemeContainer {
         width: 100%;
         overflow: hidden;
-        .ThemeContent{
-            border: 1px solid #4055bc;
-            border-radius: 6px;
+        .ThemeContent {
+            overflow: hidden;
+            .ContentTop {
+                width: 100%;
+                height: 20px;
+                background: url(../img/second_period/box_top.png);
+            }
+            .ContentCenter {
+                width: 100%;
+                background: url(../img/second_period/box_center.png) repeat-y;
+            }
+            .ContentBottom {
+                width: 100%;
+                height: 20px;
+                background: url(../img/second_period/box_bom.png);
+            }
         }
-        .ResourseContent{
-            height:252px;
+        .ResourseContent {
+            .ContentCenter {
+                height: 212px;
+            }
         }
-        .ManageContent{
-            height:522px;
+        .ManageContent {
+            .ContentCenter {
+                height: 482px;
+            }
         }
-        .ServiceContent{
-            height:592px;
+        .ServiceContent {
+            .ContentCenter {
+                height: 552px;
+            }
         }
-        .MonitorContent{
-            height:552px;
+        .MonitorContent {
+            .ContentCenter {
+                height: 512px;
+            }
         }
     }
-    .TableBox{
-        width:100%;
-        height:550px;
-        .table{
+    .TableBox {
+        width: 100%;
+        height: 550px;
+        .table {
             text-align: center;
         }
     }
 }
 
-.footer{
-	// width: 100%;
+.footer {
+    // width: 100%;
     // padding: 0 60px;
     background: #010d1f;
-    p{
+    p {
         width: 100%;
-        height:50px;
+        height: 50px;
         line-height: 50px;
         color: #ffffff;
         text-align: center;
     }
-    
 }
 
 /*内容顶部 各种主题切换 样式*/
-@MainColor:#00fff6;
 
-.canvasTab{
-    height:38px;
-   
+.LeftTabs {
+    .TabSpan {
+        width: 120px;
+        font-size: 16px;
+        display: inline-block;
+        background: #030627;
+        border: 1px solid #00e7e2;
+        color: #fff;
+        border-radius: @RadiusWidth;
+        cursor: pointer;
+        height: 38px;
+        text-align: center;
+        line-height: 36px;
+        font-weight: 500;
+    }
+    .TabSpan+.TabSpan {
+        margin-left: 30px;
+    }
+    .TabSpan.active {
+        background: @MainColor;
+        color: #02062b;
+        border: 1px solid @MainColor;
+        font-weight: 700;
+    }
 }
-.LeftTabs{
-    .tabSpan{
-        width:120px;
-         font-size:16px;
-         display: inline-block;
-         background: #030627;
-         border:1px solid #00e7e2;
-         color: #fff;
-         border-radius: 3px;
-         cursor: pointer;
-         height:38px;
-         line-height: 36px;
-     }
-     .tabSpan+.tabSpan{
-         margin-left:30px;
-     }
-     .tabSpan.active{
-         background: @MainColor;
-         color: #02062b;
-         border:1px solid @MainColor;
-     }
-}
+
 .RightSelect {
-    width:408px;
-    height:100%;
+    width: 408px;
+    height: 100%;
     display: block;
 }
-.InfoListContent{
-	float: right;
-	width: 3.5rem;
-	text-align: left;
-	// height: 1.6rem;
 
-	.selectLi{
-		border: 1px solid #00d1eb;
-		border-radius: .1rem;
-		color:#fff;
-		
-		cursor: pointer;
-		font-size: .35rem;
-		width: 100%;
-		height: .8rem;
-		line-height: .8rem;
-		padding-left: .35rem;
-		position: relative;
-		.spanInner{
-			color:#fff;
-		  }
-		.spanInner.active{
-			color:#00eafc;
-		  }
-		.TreeList{
-			width: 3.5rem;
-			position: absolute;
-			display: none;
-			z-index: 100;
-			left: -.01rem;
-			background: #080b2f;
-			border: 1px solid #00d1eb;
-			border-radius: .1rem;
-			.treeLi{
-				width: 3.4rem;
-				height: .8rem;
-				line-height: .8rem;
-				color:#fff;
-				font-size: .35rem;
-				text-indent: .35rem;
-			}
-			.treeLi.active{
-				color:#00eafc;
-		  }
-		}
-		.TreeList.show{
-			display: block;
-		}
-		.dropIcon{
-			float: right;
-			margin-top: -.45rem;
-			// background-origin: 50% 50%;
-		}
-	}
-	
-	.dropIcon{
-		margin-left: .35rem;
-		margin-right: .35rem;
-	}
-}
-.dropIcon{
-	width:.25rem;
-	height:.125rem;
-	background: url(../img/second_period/xlsj.png) no-repeat;
-	background-size: 100% 100%;
-	// background-origin: 50% 50%;
-}
-.TimeTypeBox{
-	float: right;
-	text-align: center;
-	width: 4.53rem;
-	height: 1.3rem;
-	line-height: 1.3rem;
-	border: .025rem solid #00d1eb;
-	border-radius:.2rem; 
-	.TimeTypeSpan{
-		width: 50%;
-		height: 100%;
-		line-height: 1.1rem;
-		font-size: .7rem;
-		background: #031735;
-		color: #00d1eb;
-		cursor: pointer;
-	}
-	.TimeTypeSpan.active{
-		background: #00d1eb;
-		color: #030d2b;
-	}
+.InfoListContent {
+    float: right;
+    width: 210px;
+    text-align: left; 
+    margin-right: 30px;
+    background: #151d3c;
+    .selectLi {
+        width: 100%;
+        height: 38px;
+        line-height: 36px;
+        border: 1px solid @MainColor;
+        border-radius: @RadiusWidth;
+        color: #fff;
+        cursor: pointer;
+        font-size: 14px;
+        padding: 0 10px 0 16px;
+        position: relative;
+        .spanInner {
+            color: #fff;
+        }
+        .spanInner.active {
+            color: #00eafc;
+        }
+        .TreeList {
+            width: 100%;
+            position: absolute;
+            display: none;
+            z-index: 100;
+            left: -1px;
+            background: #151d3c;
+            border: 1px solid @MainColor;
+            border-radius: @RadiusWidth;
+            .treeLi {
+                width: 92%;
+                height: 36px;
+                line-height: 36px;
+                color: #fff;
+                text-indent: 16px;
+            }
+            .treeLi.active {
+                color: @MainColor;
+            }
+        }
+        .TreeList.show {
+            display: block;
+        }
+        .dropIcon {
+            float: right;
+            margin-top: 16px; // background-origin: 50% 50%;
+        }
+    }
+    .dropIcon {
+        margin-left: 7px;
+    }
 }
 
-/* TitleDiv 样式*/
-.TitleDiv{
+.dropIcon {
+    width: 9px;
+    height: 8px;
+    background: url(../img/second_period/xl_jt.png) no-repeat;
+}
+
+.TimeTypeBox {
+    float: right;
+    flex-direction: row;
+    -webkkit-flex-direction: row;
+    width: 160px;
+    height: 38px;
+    text-align: center;
+    border: 1px solid #00d1eb;
+    border-radius: @RadiusWidth;
+    .TimeTypeSpan {
+        flex: 1;
+        height: 100%;
+        line-height: 36px;
+        font-size: 16px;
+        background: #0a1231;
+        color: @MainColor;
+        cursor: pointer;
+    }
+    .TimeTypeSpan.active {
+        background: @MainColor;
+        color: #010d1f;
+    }
+}
+
+/*ResourseContent 样式*/
+
+.TitleDiv {
     width: 100%;
-    height:90px;
-    padding-top:16px;
-    .TitleLeftDiv{
+    height: 90px;
+    padding-top: 16px;
+    .TitleLeftDiv {
         width: 50%;
-        height:70px;
-        line-height:70px;
-        .titleIcon{
+        height: 70px;
+        line-height: 70px;
+        .titleIcon {
             display: inline-block;
-            width:34px;
-            height:27px; 
+            width: 34px;
+            height: 27px;
             background: url(../img/second_period/title_dot.png);
             position: relative;
             top: 6px;
         }
-        .TitleFont{
+        .TitleFont {
             font-weight: 700;
             font-size: 24px;
-	        color: #fff;
+            color: #fff;
         }
-        .OutFont{
+        .OutFont {
             font-style: normal;
-            color:@MainColor;
+            color: @MainColor;
         }
     }
 }
 
-/*table样式*/
-.ManageContent{
-    margin-top: 45px;
-    padding-bottom: 60px;
-    background: #fff;
-    .table{
+.TotalNum {
+    width: 518px;
+    height: 100%;
+    color: #fff;
+    padding-left: 27px;
+    .title {
+        font-size: 20px;
+        line-height: 30px;
+        margin-top: 2px;
+        color: #fff;
+    }
+    .NumP {
+        font-size: 30px;
+        line-height: 90px;
+        color: #fff;
+        .NumSpan {
+            color: @MainColor;
+            font-family: '液晶数字字体';
+            font-size: 90px;
+            margin-right: 10px;
+        }
+    }
+}
+
+.ListDiv {
+    margin-top: 10px;
+    .saveIcon {
+        display: block;
+        width: 54px;
+        height: 54px;
+        background: url(../img/second_period/sj_icon.png);
+        margin-right: 20px;
+    }
+    .SaveList {
+        width: 340px;
+        height: 66px;
+        .SaveLi {
+            min-width: 98px;
+            height: 100%;
+        }
+    }
+}
+
+.SaveLi {
+    .name {
+        font-size: 16px;
+        line-height: 20px;
+        color: #94b8ff;
+    }
+    .num {
+        margin-top: 8px;
+        font-size: 14px;
+        line-height: 33px;
+        font-weight: 700;
+        color: #fff;
+    }
+    .NumSpan {
+        font-size: 20px;
+        color: #fff;
+        margin-right: 3px;
+    }
+}
+
+.TotalPart {
+    .name {
+        color: #fff;
+    }
+    .num {
+        color: @MainColor;
+    }
+    .NumSpan {
+        color: @MainColor;
+    }
+}
+
+.CardListDiv {
+    width: 1283px;
+    height: 100%;
+    padding: 7px 47px;
+    background: url(../img/second_period/line.png) no-repeat;
+    background-size: 2px 100%;
+}
+
+.CardList {
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    height: 193px;
+    .CardLi {
+        flex: 1;
+        height: 100%;
+        padding: 50px 35px;
+        /*资源分类监控-卡片内-样式*/
+        .IconDiv {
+            margin-top: 5px;
+            width: 80px;
+            height: 80px;
+            margin-right: 40px;
+        }
+        .NumDiv {
+            .name {
+                font-size: 18px;
+                line-height: 28px;
+                color: #fff;
+            }
+            .num {
+                margin-top: 20px;
+                font-size: 16px;
+                line-height: 44px;
+                font-weight: 700;
+                color: #fff;
+                .NumSpan {
+                    font-size: 34px;
+                    font-weight: 700;
+                    color: #fff;
+                    margin-right: 5px;
+                }
+            }
+            
+        }
+    }
+    .CardLi+.CardLi {
+        margin-left: 30px;
+    }
+    .CardLi:nth-child(1) {
+        background: #0096ff;
+        .IconDiv {
+            background: url(../img/second_period/top_icon1.png);
+        }
+    }
+    .CardLi:nth-child(2) {
+        background: #ff9600;
+        .IconDiv {
+            background: url(../img/second_period/top_icon2.png);
+        }
+    }
+    .CardLi:nth-child(3) {
+        background: #5858da;
+        .IconDiv {
+            background: url(../img/second_period/top_icon3.png);
+        }
+    }
+    .CardLi:nth-child(4) {
+        background: #fb6262;
+        .IconDiv {
+            background: url(../img/second_period/top_icon4.png);
+        }
+    }
+}
+
+.Overall {
+    .CardList{
+        .CardLi {
+            padding: 20px 0 20px 14px;
+            /*总体监控-卡片内-样式*/
+            .title {
+                font-size: 18px;
+                line-height: 28px;
+                margin-top: 0;
+                color:#fff;
+                text-align: left;
+                font-weight: 500;
+            }
+            .NumP {
+                font-size: 16px;
+                line-height: 50px;
+                color: #fff;
+                text-align: left;
+                font-weight: 700;
+                .NumSpan {
+                    color: #fff;
+                    font-family: 'Microsoft yahei';
+                    font-weight: 700;
+                    font-size: 24px;
+                    margin-right: 5px;
+                }
+            }
+            .SaveList {
+                width: 250px;
+                .SaveLi{
+                    min-width: 100px;
+                }
+            }
+            
+            .name {
+                font-size: 16px;
+                line-height: 26px;
+                color: #fff;
+                font-weight: 500;
+            }
+            .num {
+                margin-top: 12px;
+                font-size: 16px;
+                line-height: 28px;
+                font-weight: 500;
+                color: #fff;
+                .NumSpan {
+                    font-size: 18px;
+                    font-weight: 700;
+                    color: #fff;
+                    margin-right: 5px;
+                }
+            }
+            
+        }
+    }
+}
+
+/*ManageContent 样式*/
+
+.ManageContent {
+    background: #0d1345;
+    .table {
         border-spacing: 0px;
-        width:95%;
+        width: 95%;
         margin: 0 auto;
         text-align: center;
-        .thead{
-            color:#413a3a;
-            tr{
-                height:50px;
-                padding:0 30px;
-                // border: 1px solid red;
+        .thead {
+            color: #94b8ff;
+            tr {
+                height: 45px;
+                padding: 0 30px; // border: 1px solid red;
             }
         }
-        .tbody{
-            tr:nth-child(odd){
-                background: #fff;
-            }
-            tr:nth-child(even){
-                background: #f6fafd;
-            }
-            td{
+        .tbody {
+            tr:nth-child(odd) {
+                background: #111852;
+            } // tr:nth-child(even){
+            //     background: transparent;
+            // }
+            td {
                 //width:20%;
-                font-size:16px;
-                color: #010d1f;
-                font-weight:700;
-                border:none;//去除行列间的竖线
+                font-size: 16px;
+                color: #fff;
+                border: none; //去除行列间的竖线
             }
-           
-            tr{
-                height: 55px;
-                td:nth-child(1){
-                   // width:10%;
+            tr {
+                height: 60px; //td:nth-child(1){
+                // width:10%;
+                //}
+                td:nth-child(2) {
+                    font-weight: 700;
+                } // td:nth-child(4){
+                // }
+                td::last-child {
+                    color: @MainColor;
                 }
-                td:nth-child(2){
-                    //width:30%;
-                }
-                td:nth-child(4){
-                    color: #0096ff;
+                td.abnormal {
+                    color: #ff7e00;
                 }
             }
         }
     }
+}
+
+/*header模块 公共样式*/
+
+.HeaderDiv {
+    height: 45px;
+    padding-top: 6px;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    .title {
+        flex: 1;
+        color: @MainColor;
+        font-size: 20px;
+        line-height: 45px;
+    }
+    .RightTime {
+        width: 100px;
+        color: #94b8ff;
+        font-size: 16px;
+        line-height: 45px;
+        text-align: right;
+    }
+    .canvasTab {
+        flex: 1;
+        .TabSpan {
+            width: 108px;
+            height: 39px;
+            line-height: 39px;
+            font-size: 18px;
+            color: #fff;
+            background: transparent;
+            border: none;
+        }
+        .TabSpan.active {
+            background: url(../img/second_period/sjfw_tab_bg.png) no-repeat;
+            background-size: 100% 100%;
+            color: @MainColor;
+        }
+    }
+}
+
+.ContentLeft {
+    width: 900px;
+    height: 100%;
+    padding: 0 40px 0 30px;
+}
+
+.ContentRight {
+    width: 900px;
+    height: 100%;
+    padding: 0 40px 0 50px;
+    background: url(../img/second_period/line.png) no-repeat;
+    background-size: 2px 100%;
+}
+
+/*ServiceContent 样式*/
+
+.ServiceContent {
+    .ContentLeft {
+        .HeaderDiv {
+            margin-bottom: 15px;
+        }
+    }
+    .HotResList {
+        width: 900px;
+        height: 215px;
+        .HotResLi {
+            float: left;
+            display: block;
+            width: 215px;
+            height: 100%;
+            border: 1px solid #0b365f;
+        }
+        .HotResLi+.HotResLi {
+            margin-left: 85px;
+        }
+    }
+    .HotResList+.HotResList {
+        margin-top: 50px;
+    }
+}
+.ServiceCanvas{
+    // border: 1px solid red;
+}
+.LiContent {
+    margin: 6px;
+    width: 201px;
+    height: 201px;
+    border: 2px solid #086683;
+    .LiTitle {
+        width: 180px;
+        margin: 0 auto;
+        height: 43px;
+        line-height: 43px;
+        margin-top: 15px;
+        text-align: center;
+        background: url(../img/second_period/rmzy_topbg.png);
+        color: #fff;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .LiInfo {
+        color: #fff;
+        font-size: 18px;
+        line-height: 45px;
+        text-align: center;
+        margin-top: 15px;
+    }
+    .OutFont {
+        color: @MainColor;
+        font-size: 25px;
+        line-height: 45px;
+        margin-right: 5px;
+    }
+}
+
+/*MonitorContent 样式*/
+
+.MonitorContent {
+    .ContentLeft {
+        width: 900px;
+    }
+    .HeaderDiv {
+        height: 34px;
+        padding-top: 9px;
+        .title {
+            height: 25px;
+            line-height: 25px;
+        }
+    }
+    .MonitorList {
+        .MonitorLi {
+            height: 125px;
+            padding-top: 27px; // border-top:1px solid #3d426a;
+        }
+        .MonitorLi+.MonitorLi {
+            border-top: 1px solid #3d426a;
+        }
+        .MonitorLi:first-child {
+            height: 110px; // padding-top:15px;
+        }
+    }
+    .ContentRight {
+        .MonitorLi {
+            border-bottom: 1px solid #3d426a;
+        }
+        .MonitorDataList {
+            width: 736px;
+            height: 70px;
+            .MonitorDataLi:nth-child(1) {
+                width: 343px;
+            }
+            .MonitorDataLi:nth-child(2) {
+                width: 343px;
+            }
+        }
+    }
+}
+
+.MonitorDiv {
+    height: 70px;
+    .MarkIcon {
+        display: block;
+        width: 56px;
+        height: 55px;
+        margin-right: 16px;
+        margin-top: 7px;
+    }
+    .MonitorDataList {
+        width: 756px;
+        height: 70px;
+        .MonitorDataLi {
+            height: 100%;
+        }
+        .MonitorDataLi:nth-child(1) {
+            width: 353px;
+        }
+        .MonitorDataLi:nth-child(2) {
+            width: 353px;
+        }
+        .MonitorDataLi:nth-child(3) {
+            width: 50px;
+        }
+    }
+    .MonitorDataLi {
+        .name {
+            font-size: 16px;
+            line-height: 26px;
+            color: #fff;
+            font-weight: 700;
+        }
+        .num {
+            margin-top: 17px;
+            font-size: 14px;
+            line-height: 26px;
+            font-weight: 700;
+            color: #fff;
+            .NumSpan {
+                font-size: 24px;
+                color: #fff;
+                margin-right: 3px;
+            }
+        }
+        .name.ordinary {
+            color: #00ffcc;
+        }
+        .name.abnormal {
+            color: #ff7e00;
+        }
+        .num.OutNum {
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 26px;
+            color: @MainColor;
+            .NumSpan {
+                font-size: 30px;
+                color: @MainColor;
+            }
+        }
+    }
+}
+
+.MonitorLi:nth-child(1) {
+    .MarkIcon {
+        background: url(../img/second_period/bom_icon1.png);
+    }
+}
+
+.MonitorLi:nth-child(2) {
+    .MarkIcon {
+        background: url(../img/second_period/bom_icon2.png);
+    }
+}
+
+.MonitorLi:nth-child(3) {
+    .MarkIcon {
+        background: url(../img/second_period/bom_icon3.png);
+    }
+}
+
+.MonitorLi:nth-child(4) {
+    .MarkIcon {
+        background: url(../img/second_period/bom_icon4.png);
+    }
+}
+
+.ServiceMonitor {
+    position: relative;
+    left: -48px;
+    border: 1px solid red;
 }

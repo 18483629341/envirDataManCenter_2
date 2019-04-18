@@ -64,24 +64,27 @@
 	<section class="section ">
 		<!-- 头部主题切换   -->
 		<div class="TabsDiv FlexBlock">
-			<div class="canvasTab LeftTabs">
-				<span class="tabSpan active" data-name="">总体监控</span>
-				<span class="tabSpan " data-name="">资源分类监控</span>
-				<span class="tabSpan " data-name="">部门资源监控</span>
+			<div class=" LeftTabs">
+				<span class="TabSpan active" data-theme="Overall">总体监控</span>
+				<span class="TabSpan " data-theme="ResourceClassification">资源分类监控</span>
+				<span class="TabSpan " data-theme="DepartmentalResources">部门资源监控</span>
 			</div>
-			<div class="canvasTab RightSelect">
+			<div class=" RightSelect">
+				<div class="TimeTypeBox FlexBlock">
+					<div class="TimeTypeSpan  flex1" data-theme="NearlyAYear">近一年</div>
+					<div class="TimeTypeSpan active flex1" data-theme="total">全部</div>
+				</div>
 				<div class="InfoListContent FlexBlock polSelct" id="polSelct">
 					<div class="selectLi flex1">
 						<!-- 里面内容有 js方法initSelectlist(elementClass)  渲染 -->
 					</div>
 				</div>
-				<div class="TimeTypeBox FlexBlock">
-					<div class="TimeTypeSpan active flex1" data-name="hour">小时</div>
-					<div class="TimeTypeSpan flex1" data-name="date">日</div>
-				</div>
+
 			</div>
 
 		</div>
+
+		<!-- 数据 .资源 模块-->
 		<div class="ThemeContainer">
 			<div class="TitleDiv">
 				<div class="FloatLeft TitleLeftDiv">
@@ -92,8 +95,188 @@
 				</div>
 			</div>
 			<div class="ThemeContent ResourseContent">
+				<div class="ContentTop"></div>
+				<div class="ContentCenter">
+					<div class="TotalNum FloatLeft">
+						<p class="title">数据总量</p>
+						<p class="NumP">
+							<span class="NumSpan">671,219,121</span>条</p>
+						<div class="ListDiv">
+							<span class="saveIcon FloatLeft"></span>
+							<ul class="SaveList FloatLeft">
+								<li class="SaveLi TotalPart FloatLeft ">
+									<p class="name">存储资源</p>
+									<p class="num">
+										<b class="NumSpan">349</b>GB</p>
+								</li>
+								<li class="SaveLi FloatLeft">
+									<p class="name">存储能力</p>
+									<p class="num">
+										<b class="NumSpan">349</b>GB</p>
+								</li>
+								<li class="SaveLi FloatLeft">
+									<p class="name">已用资源</p>
+									<p class="num">
+										<b class="NumSpan">349</b>GB
+										<b class="NumSpan" style="margin-right:0">(40</b>
+										<span class="NumSpan" style="margin-right:0">%</span>
+										<b class="NumSpan">)</b>
+									</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="CardListDiv Overall FloatRight" data-theme="Overall">
+						<ul class="CardList FlexBlock">
+							<li class="CardLi">
+								<p class="title">关系型数据</p>
+								<p class="NumP">
+									<span class="NumSpan">367,990</span>条
+								</p>
+								<div class="ListDiv">
+									<ul class="SaveList FloatLeft">
+										<li class="SaveLi FloatLeft">
+											<p class="name">存储能力</p>
+											<p class="num">
+												<b class="NumSpan">349</b>GB</p>
+										</li>
+										<li class="SaveLi FloatLeft">
+											<p class="name">已用资源</p>
+											<p class="num">
+												<b class="NumSpan">349</b>GB
+												<b class="NumSpan" style="margin-right:0">(40</b>
+												<span class="NumSpan" style="margin-right:0">%</span>
+												<b class="NumSpan">)</b>
+											</p>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="CardLi">
+								<p class="title">文件型数据</p>
+								<p class="NumP">
+									<span class="NumSpan">367,990</span>条
+								</p>
+								<div class="ListDiv">
+									<ul class="SaveList FloatLeft">
+										<li class="SaveLi FloatLeft">
+											<p class="name">存储能力</p>
+											<p class="num">
+												<b class="NumSpan">349</b>GB</p>
+										</li>
+										<li class="SaveLi FloatLeft">
+											<p class="name">已用资源</p>
+											<p class="num">
+												<b class="NumSpan">349</b>GB
+												<b class="NumSpan" style="margin-right:0">(40</b>
+												<span class="NumSpan" style="margin-right:0">%</span>
+												<b class="NumSpan">)</b>
+											</p>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="CardLi">
+								<p class="title">NOSQL数据</p>
+								<p class="NumP">
+									<span class="NumSpan">367,990</span>条
+								</p>
+								<div class="ListDiv">
+									<ul class="SaveList FloatLeft">
+										<li class="SaveLi FloatLeft">
+											<p class="name">存储能力</p>
+											<p class="num">
+												<b class="NumSpan">349</b>GB</p>
+										</li>
+										<li class="SaveLi FloatLeft">
+											<p class="name">已用资源</p>
+											<p class="num">
+												<b class="NumSpan">349</b>GB
+												<b class="NumSpan" style="margin-right:0">(40</b>
+												<span class="NumSpan" style="margin-right:0">%</span>
+												<b class="NumSpan">)</b>
+											</p>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="CardLi">
+								<p class="title">空间图层</p>
+								<p class="NumP">
+									<span class="NumSpan">367,990</span>条
+								</p>
+								<div class="ListDiv">
+									<ul class="SaveList FloatLeft">
+										<li class="SaveLi FloatLeft">
+											<p class="name">存储能力</p>
+											<p class="num">
+												<b class="NumSpan">349</b>GB</p>
+										</li>
+										<li class="SaveLi FloatLeft">
+											<p class="name">已用资源</p>
+											<p class="num">
+												<b class="NumSpan">349</b>GB
+												<b class="NumSpan" style="margin-right:0">(40</b>
+												<span class="NumSpan" style="margin-right:0">%</span>
+												<b class="NumSpan">)</b>
+											</p>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="CardListDiv FloatRight" data-theme="ResourceClassification" style="display:none;">
+						<ul class="CardList FlexBlock">
+							<li class="CardLi">
+								<div class="FloatLeft IconDiv">
+								</div>
+								<div class="FloatLeft NumDiv">
+									<p class="name">目录树</p>
+									<p class="num">
+										<span class="NumSpan">321</span>个
+									</p>
+								</div>
+							</li>
+							<li class="CardLi">
+								<div class="FloatLeft IconDiv">
+								</div>
+								<div class="FloatLeft NumDiv">
+									<p class="name">目录树</p>
+									<p class="num">
+										<span class="NumSpan">123</span>个
+									</p>
+								</div>
+							</li>
+							<li class="CardLi">
+								<div class="FloatLeft IconDiv">
+								</div>
+								<div class="FloatLeft NumDiv">
+									<p class="name">目录树</p>
+									<p class="num">
+										<span class="NumSpan">123</span>个
+									</p>
+								</div>
+							</li>
+							<li class="CardLi">
+								<div class="FloatLeft IconDiv">
+								</div>
+								<div class="FloatLeft NumDiv">
+									<p class="name">目录树</p>
+									<p class="num">
+										<span class="NumSpan">123</span>个
+									</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="ContentBottom"></div>
+
 			</div>
 		</div>
+
+		<!-- 数据 .治理 模块-->
 		<div class="ThemeContainer">
 			<div class="TitleDiv">
 				<div class="FloatLeft TitleLeftDiv">
@@ -104,80 +287,86 @@
 				</div>
 			</div>
 			<div class="ThemeContent ManageContent">
-				<table class="table">
-					<thead class="thead">
-						<tr>
-							<td>业务类型</td>
-							<td>接入数量（条）</td>
-							<td>入库频率</td>
-							<td>开始时间</td>
-							<td>最新更新时间</td>
-							<td>备注</td>
-						</tr>
-					</thead>
-					<tbody class="tbody">
-						<tr>
-							<td>空气监测评价数据</td>
-							<td>5023</td>
-							<td>5023</td>
-							<td>5023</td>
-							<td>60.23</td>
-							<td>正常接入</td>
-						</tr>
-						<tr>
-							<td>地表水水质</td>
-							<td>5023</td>
-							<td>5023</td>
-							<td>5023</td>
-							<td>60.23</td>
-							<td>异常接入</td>
-						</tr>
-						<tr>
-							<td>饮用水水源地</td>
-							<td>5023</td>
-							<td>5023</td>
-							<td>5023</td>
-							<td>60.23</td>
-							<td>正常接入</td>
-						</tr>
-						<tr>
-							<td>道路交通噪声</td>
-							<td>环境统计</td>
-							<td>5023</td>
-							<td>5023</td>
-							<td>60.23</td>
-							<td>正常接入</td>
-						</tr>
-						<tr>
-							<td>功能区噪声</td>
-							<td>环境统计</td>
-							<td>5023</td>
-							<td>5023</td>
-							<td>60.23</td>
-							<td>正常接入</td>
-						</tr>
+				<div class="ContentTop"></div>
+				<div class="ContentCenter">
+					<table class="table">
+						<thead class="thead">
+							<tr>
+								<td>业务类型</td>
+								<td>接入数量（条）</td>
+								<td>入库频率</td>
+								<td>开始时间</td>
+								<td>最新更新时间</td>
+								<td>备注</td>
+							</tr>
+						</thead>
+						<tbody class="tbody">
+							<tr>
+								<td>空气监测评价数据</td>
+								<td>5023</td>
+								<td>5023</td>
+								<td>5023</td>
+								<td>60.23</td>
+								<td>正常接入</td>
+							</tr>
+							<tr>
+								<td>地表水水质</td>
+								<td>5023</td>
+								<td>5023</td>
+								<td>5023</td>
+								<td>60.23</td>
+								<td class="abnormal">异常接入</td>
+							</tr>
+							<tr>
+								<td>饮用水水源地</td>
+								<td>5023</td>
+								<td>5023</td>
+								<td>5023</td>
+								<td>60.23</td>
+								<td>正常接入</td>
+							</tr>
+							<tr>
+								<td>道路交通噪声</td>
+								<td>环境统计</td>
+								<td>5023</td>
+								<td>5023</td>
+								<td>60.23</td>
+								<td>正常接入</td>
+							</tr>
+							<tr>
+								<td>功能区噪声</td>
+								<td>环境统计</td>
+								<td>5023</td>
+								<td>5023</td>
+								<td>60.23</td>
+								<td>正常接入</td>
+							</tr>
 
-						<tr>
-							<td>噪声自动监测</td>
-							<td>5023</td>
-							<td>5023</td>
-							<td>5023</td>
-							<td>60.23</td>
-							<td>正常接入</td>
-						</tr>
-						<tr>
-							<td>道路交通噪声</td>
-							<td>2044</td>
-							<td>5023</td>
-							<td>5023</td>
-							<td>60.23</td>
-							<td>正常接入</td>
-						</tr>
-						
-					</tbody>
-				</table>
+							<tr>
+								<td>噪声自动监测</td>
+								<td>5023</td>
+								<td>5023</td>
+								<td>5023</td>
+								<td>60.23</td>
+								<td>正常接入</td>
+							</tr>
+							<tr>
+								<td>道路交通噪声</td>
+								<td>2044</td>
+								<td>5023</td>
+								<td>5023</td>
+								<td>60.23</td>
+								<td>正常接入</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+				<div class="ContentBottom"></div>
 			</div>
 		</div>
+
+		<!-- 数据 .服务 模块-->
 		<div class="ThemeContainer">
 			<div class="TitleDiv">
 				<div class="FloatLeft TitleLeftDiv">
@@ -188,20 +377,231 @@
 				</div>
 			</div>
 			<div class="ThemeContent ServiceContent">
-			</div>
-		</div>
-		<div class="ThemeContainer">
-				<div class="TitleDiv">
-					<div class="FloatLeft TitleLeftDiv">
-						<span class="titleIcon"></span>
-						<span class="TitleFont">异常 .
-							<i class="OutFont">监控</i>
-						</span>
+				<div class="ContentTop"></div>
+				<div class="ContentCenter">
+					<!-- 中间主题左边  部分 -->
+					<div class="ContentLeft FloatLeft">
+						<div class="HeaderDiv FlexBlock">
+							<div class="canvasTab LeftTabs ">
+								<span class="TabSpan active" data-theme="InterfaceCall">接口调用</span>
+								<span class="TabSpan " data-theme="InterLibraryExchange">中间库交换</span>
+							</div>
+							<div class=" RightTime ">近一周</div>
+						</div>
+						<canvas class="ServiceCanvas" id="InterfaceCall" width="830" height="470" data-theme="InterfaceCall"></canvas>
+						<canvas class="ServiceCanvas" id="InterLibraryExchange" width="830" height="470" data-theme="InterLibraryExchange" style="display:none;"></canvas>
+					</div>
+					<div class="ContentRight FloatLeft">
+						<!-- header模块 -->
+						<div class="HeaderDiv FlexBlock">
+							<div class="title ">热门资源</div>
+						</div>
+						<ul class="HotResList FlexBlock">
+							<li class="HotResLi">
+								<div class="LiContent">
+									<div class="LiTitle">No.1</div>
+									<p class="LiInfo">访问量：
+										<b class="OutFont">123</b>次</p>
+									<p class="LiInfo">地表水手工监测数据</p>
+								</div>
+							</li>
+							<li class="HotResLi">
+								<div class="LiContent">
+									<div class="LiTitle">No.2</div>
+									<p class="LiInfo">访问量：
+										<b class="OutFont">123</b>次</p>
+									<p class="LiInfo">城市空气质量日报</p>
+								</div>
+							</li>
+							<li class="HotResLi">
+								<div class="LiContent">
+									<div class="LiTitle">No.3</div>
+									<p class="LiInfo">访问量：
+										<b class="OutFont">123</b>次</p>
+									<p class="LiInfo">城市空气质量小时报</p>
+								</div>
+							</li>
+						</ul>
+						<ul class="HotResList FlexBlock">
+							<li class="HotResLi">
+								<div class="LiContent">
+									<div class="LiTitle">No.4</div>
+									<p class="LiInfo">访问量：
+										<b class="OutFont">72</b>次</p>
+									<p class="LiInfo">地表水手工监测数据</p>
+								</div>
+							</li>
+							<li class="HotResLi">
+								<div class="LiContent">
+									<div class="LiTitle">No.5</div>
+									<p class="LiInfo">访问量：
+										<b class="OutFont">65</b>次</p>
+									<p class="LiInfo">地表水手工监测数据</p>
+								</div>
+							</li>
+							<li class="HotResLi">
+								<div class="LiContent">
+									<div class="LiTitle">No.6</div>
+									<p class="LiInfo">访问量：
+										<b class="OutFont">23</b>次</p>
+									<p class="LiInfo">城市空气质量小时报</p>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</div>
-				<div class="ThemeContent MonitorContent">
+				<div class="ContentBottom"></div>
+			</div>
+		</div>
+
+		<!-- 数据 .监控 模块-->
+		<div class="ThemeContainer">
+			<div class="TitleDiv">
+				<div class="FloatLeft TitleLeftDiv">
+					<span class="titleIcon"></span>
+					<span class="TitleFont">异常 .
+						<i class="OutFont">监控</i>
+					</span>
 				</div>
 			</div>
+			<div class="ThemeContent MonitorContent">
+				<div class="ContentTop"></div>
+				<div class="ContentCenter">
+					<div class="ContentLeft FloatLeft">
+						<!-- header模块 -->
+						<div class="HeaderDiv FlexBlock">
+							<div class="title ">交换异常监控</div>
+							<div class="RightTime ">2019-02-03</div>
+						</div>
+						<ul class="MonitorList">
+							<li class="MonitorLi">
+								<div class="MonitorDiv">
+									<span class="MarkIcon FloatLeft"></span>
+									<ul class="MonitorDataList FloatLeft">
+										<li class="MonitorDataLi TotalPart FloatLeft ">
+											<p class="name">交换任务</p>
+											<p class="num OutNum">
+												<b class="NumSpan">345</b>个</p>
+										</li>
+										<li class="MonitorDataLi FloatLeft">
+											<p class="name ordinary ">正常</p>
+											<p class="num">
+												<b class="NumSpan">349</b>GB</p>
+										</li>
+										<li class="MonitorDataLi FloatLeft">
+											<p class="name abnormal">异常</p>
+											<p class="num">
+												<b class="NumSpan">45</b>个
+											</p>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="MonitorLi">
+								<div class="MonitorDiv">
+									<span class="MarkIcon FloatLeft"></span>
+									<ul class="MonitorDataList FloatLeft">
+										<li class="MonitorDataLi  FloatLeft ">
+											<p class="name">数据及时性</p>
+											<p class="num">检查</p>
+										</li>
+										<li class="MonitorDataLi FloatLeft">
+											<p class="name ordinary ">正常</p>
+											<p class="num">
+												<b class="NumSpan">349</b>GB</p>
+										</li>
+										<li class="MonitorDataLi FloatLeft">
+											<p class="name abnormal">异常</p>
+											<p class="num">
+												<b class="NumSpan">45</b>个
+											</p>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="MonitorLi">
+								<div class="MonitorDiv">
+									<span class="MarkIcon FloatLeft"></span>
+									<ul class="MonitorDataList FloatLeft">
+										<li class="MonitorDataLi  FloatLeft ">
+											<p class="name">数据量一致性</p>
+											<p class="num">监控</p>
+										</li>
+										<li class="MonitorDataLi FloatLeft">
+											<p class="name ordinary">正常</p>
+											<p class="num">监控</p>
+										</li>
+										<li class="MonitorDataLi FloatLeft">
+											<p class="name abnormal">异常</p>
+											<p class="num">
+												<b class="NumSpan">45</b>个
+											</p>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="MonitorLi">
+								<div class="MonitorDiv">
+									<span class="MarkIcon FloatLeft"></span>
+									<ul class="MonitorDataList FloatLeft">
+										<li class="MonitorDataLi TotalPart FloatLeft ">
+											<p class="name">重复数据</p>
+											<p class="num">检查</p>
+										</li>
+										<li class="MonitorDataLi FloatLeft">
+											<p class="name ordinary ">正常</p>
+											<p class="num">
+												<b class="NumSpan">349</b>GB</p>
+										</li>
+										<li class="MonitorDataLi FloatLeft">
+											<p class="name abnormal">异常</p>
+											<p class="num">
+												<b class="NumSpan">45</b>个
+											</p>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="ContentRight FloatLeft">
+						<!-- header模块 -->
+						<div class="HeaderDiv FlexBlock">
+							<div class="title ">热门资源</div>
+							<div class="RightTime ">2019-02-03</div>
+						</div>
+						<ul class="MonitorList">
+							<li class="MonitorLi">
+								<div class="MonitorDiv">
+									<span class="MarkIcon FloatLeft"></span>
+									<ul class="MonitorDataList FloatLeft">
+										<li class="MonitorDataLi TotalPart FloatLeft ">
+											<p class="name">交换任务</p>
+											<p class="num OutNum">
+												<b class="NumSpan">345</b>个</p>
+										</li>
+										<li class="MonitorDataLi FloatLeft">
+											<p class="name ordinary ">正常</p>
+											<p class="num">
+												<b class="NumSpan">349</b>GB</p>
+										</li>
+										<li class="MonitorDataLi FloatLeft">
+											<p class="name abnormal">异常</p>
+											<p class="num">
+												<b class="NumSpan">45</b>个
+											</p>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+						<canvas id="ServiceMonitor" class="ServiceMonitor" width='890' height="360"></canvas>
+
+					</div>
+				</div>
+				<div class="ContentBottom"></div>
+			</div>
+		</div>
 	</section>
 	<!-- 底部 -->
 	<footer class="footer FlexBlock">
