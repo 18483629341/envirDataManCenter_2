@@ -36,6 +36,7 @@
 .SectionContent .InfoResContent {
   background: #fff;
   flex: 1;
+  height: 175px;
   display: none;
 }
 .SectionContent .HotBox {
@@ -310,4 +311,32 @@ input:focus {
 .HotContent .MoreBox .MoreBtn:hover {
   background-color: #00c8c1;
   color: #ffffff;
+}
+/******滚动条 start*******/
+.mCSB_inside > .mCSB_container {
+  margin-right: 0px;
+}
+.mCSB_scrollTools {
+  background-color: #ffffff;
+  width: 4px;
+}
+.mCSB_scrollTools .mCSB_draggerRail {
+  width: 100%;
+  background: transparent;
+}
+.mCSB_outside + .mCS-minimal.mCSB_scrollTools_vertical,
+.mCSB_outside + .mCS-minimal-dark.mCSB_scrollTools_vertical {
+  margin: 0;
+  width: 100%;
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background-color: #c9d4e0;
+  filter: "alpha(opacity=100)";
+  -ms-filter: "alpha(opacity=100)";
+  border-radius: 2px;
+}
+.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+  background-color: #b7cee6;
+  filter: "alpha(opacity=100)";
+  -ms-filter: "alpha(opacity=100)";
 }

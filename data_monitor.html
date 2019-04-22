@@ -388,8 +388,36 @@
 							</div>
 							<div class=" RightTime ">近一周</div>
 						</div>
-						<canvas class="ServiceCanvas" id="InterfaceCall" width="830" height="470" data-theme="InterfaceCall"></canvas>
-						<canvas class="ServiceCanvas" id="InterLibraryExchange" width="830" height="470" data-theme="InterLibraryExchange" style="display:none;"></canvas>
+						<div class="ServiceCanvas InterfaceCall" id="InterfaceCall" data-theme="InterfaceCall">
+                            <!-- <div class="vain"></div>
+						
+							<div class="LineList">
+								
+								<div class="QuadraticCurveBox ">
+									<canvas class="QuadraticCurve" id="InterfaceCallCanvas" width=224 height=830></canvas>
+									<div class="LightBox InterfaceCallLightBox" >
+										<span class="LineIcon "></span>
+										<span class="LineIcon "></span>
+										<span class="LineIcon "></span>
+										<span class="LineIcon "></span>
+										<span class="LineIcon "></span>
+									</div>
+
+								</div>
+								
+							</div>
+							<div class="IconBox">
+								<div class="IconList">
+										<div class="RectIcon"></div>
+										<div class="RectIcon"></div>
+										<div class="RectIcon gold"></div>
+										<div class="RectIcon"></div>
+										<div class="RectIcon"></div>
+								</div>
+								
+							</div> -->
+						</div>
+						<div class="ServiceCanvas" id="InterLibraryExchange"  data-theme="InterLibraryExchange" style="display:none;"></div>
 					</div>
 					<div class="ContentRight FloatLeft">
 						<!-- header模块 -->
@@ -567,7 +595,7 @@
 					<div class="ContentRight FloatLeft">
 						<!-- header模块 -->
 						<div class="HeaderDiv FlexBlock">
-							<div class="title ">热门资源</div>
+							<div class="title ">服务异常监控</div>
 							<div class="RightTime ">2019-02-03</div>
 						</div>
 						<ul class="MonitorList">
@@ -576,17 +604,19 @@
 									<span class="MarkIcon FloatLeft"></span>
 									<ul class="MonitorDataList FloatLeft">
 										<li class="MonitorDataLi TotalPart FloatLeft ">
-											<p class="name">交换任务</p>
+											<p class="name">服务接口</p>
 											<p class="num OutNum">
 												<b class="NumSpan">345</b>个</p>
 										</li>
 										<li class="MonitorDataLi FloatLeft">
-											<p class="name ordinary ">正常</p>
+											<p class="name ordinary ">
+												<span class="NormalCircle"></span>正常</p>
 											<p class="num">
-												<b class="NumSpan">349</b>GB</p>
+												<b class="NumSpan">349</b>个</p>
 										</li>
 										<li class="MonitorDataLi FloatLeft">
-											<p class="name abnormal">异常</p>
+											<p class="name abnormal">
+												<span class="AbnormalCircle"></span>异常</p>
 											<p class="num">
 												<b class="NumSpan">45</b>个
 											</p>

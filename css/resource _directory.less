@@ -55,6 +55,7 @@
     .InfoResContent{
         background: #fff;
         flex:1;
+        height: 175px;
         display: none;
     }
     .HotBox{
@@ -365,4 +366,30 @@ input:focus{
     }
 }
 
-
+/******滚动条 start*******/
+.mCSB_inside > .mCSB_container {
+    margin-right: 0px;
+}
+.mCSB_scrollTools{
+	background-color: rgba(255, 255, 255,1);
+	width: 4px;
+	.mCSB_draggerRail {
+		width: 100%;
+		background:transparent;
+	}
+}
+.mCSB_outside + .mCS-minimal.mCSB_scrollTools_vertical, .mCSB_outside + .mCS-minimal-dark.mCSB_scrollTools_vertical {
+	margin:0;
+	width:100%; 
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color: rgba(201, 212, 224,1);
+    filter: "alpha(opacity=100)";
+	-ms-filter: "alpha(opacity=100)";
+	border-radius:2px;
+}
+.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+    background-color: rgba(183, 206, 230, 1);
+     filter: "alpha(opacity=100)";
+    -ms-filter: "alpha(opacity=100)";
+}

@@ -2,6 +2,7 @@
 @RadiusWidth: 4px;
 .body1 {
     background: url(../img/second_period/bg.png);
+    background-size:100%; 
 }
 
 /*整体布局*/
@@ -178,7 +179,10 @@
     height: 8px;
     background: url(../img/second_period/xl_jt.png) no-repeat;
 }
-
+.rotatel{
+	transform:rotate(180deg);
+	transform-origin: center;
+}
 .TimeTypeBox {
     float: right;
     flex-direction: row;
@@ -267,10 +271,10 @@
         margin-right: 20px;
     }
     .SaveList {
-        width: 340px;
+        width: 410px;
         height: 66px;
         .SaveLi {
-            min-width: 98px;
+            min-width: 110px;
             height: 100%;
         }
     }
@@ -311,7 +315,7 @@
 .CardListDiv {
     width: 1283px;
     height: 100%;
-    padding: 7px 47px;
+    padding: 7px 50px;
     background: url(../img/second_period/line.png) no-repeat;
     background-size: 2px 100%;
 }
@@ -324,12 +328,13 @@
         flex: 1;
         height: 100%;
         padding: 50px 35px;
+        border-radius: 4px;
         /*资源分类监控-卡片内-样式*/
         .IconDiv {
             margin-top: 5px;
             width: 80px;
             height: 80px;
-            margin-right: 40px;
+            margin-right: 38px;
         }
         .NumDiv {
             .name {
@@ -455,6 +460,9 @@
                 height: 45px;
                 padding: 0 30px; // border: 1px solid red;
             }
+            td{
+                font-weight: 700;
+            }
         }
         .tbody {
             tr:nth-child(odd) {
@@ -468,16 +476,26 @@
                 color: #fff;
                 border: none; //去除行列间的竖线
             }
+            td:nth-child(1){
+                width:11%;
+            }
+            td:last-child {
+                width:7.46%;
+            }
             tr {
-                height: 60px; //td:nth-child(1){
-                // width:10%;
-                //}
+                height: 60px; 
+                td:nth-child(1){
+                    text-align: left;
+                    padding-left: 30px;
+                }
                 td:nth-child(2) {
                     font-weight: 700;
                 } // td:nth-child(4){
                 // }
-                td::last-child {
+                td:last-child {
                     color: @MainColor;
+                    text-align: right;
+                    padding-right: 30px;
                 }
                 td.abnormal {
                     color: #ff7e00;
@@ -567,7 +585,89 @@
     }
 }
 .ServiceCanvas{
+    position: relative;
     // border: 1px solid red;
+    @lightBoxW:224px;//225px
+    @lightBoxH:830px;//830px
+    .vain{
+        height: 110px;
+    }
+    .LineList{
+       
+        width:@lightBoxW;
+        height:@lightBoxH;
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        transform-origin:50%;
+        -webkit-transform-origin:center;
+        position: relative;
+        top:-410px;
+        left:302px;
+    }
+   
+    .QuadraticCurveBox{
+        width:@lightBoxW;
+        height:@lightBoxH;
+        position: relative;
+        // border: 1px solid red;
+    }
+    .QuadraticCurve{
+        width: @lightBoxW;
+        height:@lightBoxH;
+        position: absolute;
+    }
+    .LightBox{
+        width: 100%;
+        height: @lightBoxH;
+        z-index: 2;
+        position: relative;
+    }
+    .LineIcon{
+        display: inline-block;
+        width:30px ;
+        height:14px;
+        background: url(../img/gu_dot.png) no-repeat;
+        position: absolute;
+    }
+    .IconBox{
+        position: absolute;
+        width:100%;
+        height:220px;
+        top:0;
+        z-index: 2; 
+    }
+    .IconList{
+        position: relative;
+        width:@lightBoxH;
+        height:220px;
+        .RectIcon.gold{
+            position: absolute;
+            width:132px;
+            height:132px;
+            top: 0;
+            left:344px;
+            background: url(../img/second_period/gold_bg.png) no-repeat;
+            background-size:100% 100%; 
+        }
+        .RectIcon{
+            position: absolute;
+            width:95px;
+            height:95px;
+            top: 135px;
+            left:0;
+            background: url(../img/second_period/blue_bg.png) no-repeat;
+            background-size:100% 100%; 
+        }
+        .RectIcon:nth-child(2){
+            left:200px;
+        }
+        .RectIcon:nth-child(4){
+            right:200px;
+        }
+        .RectIcon:nth-child(5){
+            right:0;
+        }
+    }
 }
 .LiContent {
     margin: 6px;
@@ -688,11 +788,24 @@
                 margin-right: 3px;
             }
         }
-        .name.ordinary {
+        .name {
             color: #00ffcc;
         }
         .name.abnormal {
             color: #ff7e00;
+        }
+        .NormalCircle,.AbnormalCircle{
+            display: inline-block;
+            width: 12px;
+            height:12px;
+            border-radius:50%; 
+            margin-right:3px;
+        }
+        .NormalCircle{
+            background: #00ffcc;
+        }
+        .AbnormalCircle{
+            background: #ff7e00;
         }
         .num.OutNum {
             margin-top: 10px;
