@@ -564,10 +564,13 @@
 }
 .ServiceCanvas .LineIcon {
   display: inline-block;
-  width: 30px ;
-  height: 14px;
-  background: url(../img/gu_dot.png) no-repeat;
+  width: 16px ;
+  height: 43px;
+  background: url(../img/second_period/blue_dot.png) no-repeat;
   position: absolute;
+}
+.ServiceCanvas .LineIcon.gold {
+  background: url(../img/second_period/gold_dot.png) no-repeat;
 }
 .ServiceCanvas .IconList {
   position: relative;

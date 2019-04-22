@@ -35,11 +35,9 @@ function autoScrollFun(element) {
 	var $this = $(element);
 	var scrollTimer;
 	$this.hover(function () {
-        console.log(1);
 		clearInterval(scrollTimer);
 	}, function () {
 		scrollTimer = setInterval(function () {
-            console.log(2);
 			scrollNews($this);
 		}, 2000);
 	}).trigger('mouseleave');	
@@ -54,7 +52,6 @@ function scrollNews(obj) {
 		var $self = obj.find('.table');
 		//获得第一个tr的高度
         var lineHeight = $self.find('tr:first').height();
-        console.log(lineHeight);
 		//并根据此高度向上移动
 		$self.animate({
 			'marginTop': -lineHeight + 'px'

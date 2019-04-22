@@ -24,7 +24,9 @@ $(function () {
 	/* 左边曲线  */
     bulgeDraw('InterfaceCallCanvas', 5,200);//draw(elementId,需要展示的曲线条数,相lin)
     /* 左边曲线上所有的光点的方法对象  */
-    var lightLoopLeft = new BulgeLightLoop('.InterfaceCallLightBox', 5, "converage");//converage 往集中方向
+    var lightLoopLeft = new BulgeLightLoop('.InterfaceCallLightBox', 5, 200 , "spread");//converage/spread 往集中方向/分散方向
+	lightLoopLeft.turn();
+	console.log(lightLoopLeft.radio);
 })
 
 var serviceMonitorData={
@@ -230,7 +232,6 @@ function selectToggle(elementClass) {
 * @param {string} elementId 绘制曲线的canvas的ID
 * @param {number} n         需要绘制曲线的数量
 * @param {number} curveGap   曲线的间距
-
 */
 function bulgeDraw(elementId, n,curveGap) {
 	var canvas = document.getElementById(elementId);
@@ -249,12 +250,11 @@ function bulgeDraw(elementId, n,curveGap) {
 	
 	var topMaxNo=null;  
 	var centerNo=null;   
-	var bomMinNo=null;
+	
 	if(numType=='奇数'){
 		centerNo=parseInt((n+1)/2);
 	}else{
 		topMaxNo=parseInt(n/2);
-		bomMinNo=parseInt(n/2+1);
 	}
 
 	//绘制2次贝塞尔曲线 
@@ -264,30 +264,27 @@ function bulgeDraw(elementId, n,curveGap) {
     for (var i = 0; i < n; i++) {
 		var index=i+1;//从1开始
 		var startX =null;
-		var offset=null;
+		var offset=84;
 		var controlX=null;
 		if(numType==='奇数'){
 			if(index<centerNo){
-				offset=84;
 				startX= parseInt((index-1)*curveGap) + (rectWidth/2);
 				controlX=startX+curveGap*0.1;
-				console.log(index,parseInt((index-1)*curveGap),(rectWidth/2),startX);
 			}else if(index===centerNo){
 				offset=0;
 				startX=centerX;	
 				controlX=startX;
 			}else{
-				offset=84;
-				startX=boxWidth - parseInt((n-index)*curveGap) - (rectWidth/2).toFixed(1);
+				startX=boxWidth - parseInt((n-index)*curveGap) - (rectWidth/2);
 				controlX=startX-curveGap*0.1;
 			}
 		}else{
-			if(index<=topMaxNo){
-				startX=parseInt(index*curveGap);
-				controlX=startX-curveGap*0.1;
-			}else{
-				startX=boxHeight-parseInt((n-index)*curveGap);
+			if(index<topMaxNo ||index===topMaxNo){
+				startX=parseInt((index-1)*curveGap) + (rectWidth/2);
 				controlX=startX+curveGap*0.1;
+			}else{
+				startX=boxWidth - parseInt((n-index)*curveGap) - (rectWidth/2);
+				controlX=startX-curveGap*0.1;
 			}
 		}
 	
@@ -306,30 +303,42 @@ function bulgeDraw(elementId, n,curveGap) {
 //移动点的原型
 /**
 * 
-* @param {*} element   移动点的父元素的选择器
-* @param {*} n         总共移动点的数量
-* @param {*} direction     需要绘制曲线的方向,只能为 "converage"|'spread'
+* @param {string} element   移动点的父元素的选择器
+* @param {number} n         总共移动点的数量
+* @param {number} curveGap   曲线的间距
+* @param {string} direction     需要绘制曲线的方向,只能为 "converage"|'spread'
 */
-function BulgeLightLoop(element, n,type) {
-    this.element=element
+function BulgeLightLoop(element, n,curveGap,type) {
+	this.element=element;
+	this.curveGap=curveGap;
     this.type=type;
     this.boxHeight = $(this.element).height();         //移动点的的高度  
     this.boxWidth = $(this.element).width();          //移动点的父元素的的宽度
-    this.perHeight = parseInt(this.boxHeight / n);
+    this.centerX = parseInt(this.boxWidth / 2);
     this.childWidth = $(this.element).children().width();                   //移动点的子元素的宽度    
-    this.childHeight = $(this.element).children().height();                 //移动点的子元素的高度
+	this.childHeight = $(this.element).children().height();                 //移动点的子元素的高度
+	this.rectWidth=$('.rect-icon').width();
     //控制点p1统一为
-    this.controlX = 30;                                          //离canvas做左侧的水平距离 统一为30；
+    this.controlY =this.childHeight- 30;                                          //离canvas做左侧的水平距离 统一为30；
     //终点p2统一为右边终点
-    this.endX = this.boxWidth;
-    this.endY = this.boxHeight / 2;//垂直中心
-    this.radio = 0;//贝塞尔曲线的比值
-    
+    this.endX = this.boxWidth/2;
+    this.endY = this.boxHeight;//垂直中心
+	this.radio = 0;//贝塞尔曲线的比值
+	
+	//数量是奇数，还是偶数
+	this.numType=n%2===0?'偶数':'奇数';
+	this.topMaxNo=null;  
+	this.centerNo=null;   
+	
+	if(this.numType=='奇数'){
+		this.centerNo=parseInt((n+1)/2);
+	}else{
+		this.topMaxNo=parseInt(n/2);
+	}
     var _this = this;
     var LightTurnOn = setInterval(function () {
         _this.turn();
     }, 40)
-
     this.turn = function () {
         if (this.radio >= 1) {
             this.radio = 0
@@ -338,36 +347,76 @@ function BulgeLightLoop(element, n,type) {
         }
         for (var i = 0; i < n; i++) {
             var obj = {};
+			var index=i+1;//从1开始
+			obj.startX=null;
+			obj.offset=84;
+			obj.controlX=null;
+			if(this.numType==='奇数'){
+				if(index<this.centerNo){
+					obj.startX= parseInt((index-1)*this.curveGap) + (this.rectWidth/2);
+					obj.controlX=obj.startX+this.curveGap*0.1;
+				}else if(index===this.centerNo){
+					obj.offset=0;
+					obj.startX=this.centerX;	
+					obj.controlX=obj.startX;
+				}else{
+					obj.startX=this.boxWidth - parseInt((n-index)*this.curveGap) - (this.rectWidth/2);
+					obj.controlX=obj.startX-this.curveGap*0.1;
+				}
+			}else{
+				if(index<this.topMaxNo ||index===this.topMaxNo){
+					obj.startX= parseInt((index-1)*this.curveGap) + (this.rectWidth/2);
+					obj.controlX=obj.startX-this.curveGap*0.1;
+				}else{
+					obj.startX=this.boxWidth - parseInt((n-index)*this.curveGap) - (this.rectWidth/2);
+					obj.controlX=obj.startX+this.curveGap*0.1;
+				}
+			}
              //控制点p1
-            obj.controlY= this.boxHeight / 2+this.perHeight/16*(i-n/2);                          
+            obj.controlY=this.boxHeight-30;                          
             //如果是光点往集中方向移动的类型
             if(this.type==="converage"){
-            //起点p0                
-                obj.startX = 0;                                              //离canvas做左侧的水平距离            
-                obj.startY = this.perHeight / 2 + this.perHeight * i;             //离canvas顶部的垂直距离  
+               //起点p0                
+                obj.startY = obj.offset;                                              //离canvas做左侧的水平距离            
                 obj.endX=this.endX;
                 obj.endY=this.endY;    
-                //计算斜率，得到点的切线方向，得到角度
-                obj.k = [(1 - this.radio) * (obj.controlY - obj.startY) + this.radio * (obj.endY - obj.controlY)] / [(1 - this.radio) * (this.controlX - obj.startX) + this.radio * (obj.endX - this.controlX)];
-                //根据斜率，求得需要切斜的角度 单位为弧度，/0.017453293 转化为角度
-                obj.angle = Math.atan(obj.k) / 0.017453293;//根据斜率得到旋转角度
+				//计算斜率，得到点的切线方向，得到角度
+				
+                obj.k = [(1 - this.radio) * (obj.controlY - obj.startY) + this.radio * (obj.endY - obj.controlY)] / [(1 - this.radio) * (obj.controlX - obj.startX) + this.radio * (obj.endX - obj.controlX)];
+				obj.angle = Math.atan(obj.k) / 0.017453293-90;//根据斜率得到旋转角度
+				//根据斜率，求得需要切斜的角度 单位为弧度，/0.017453293 转化为角度
+				console.log(obj.angle);
+				if(index<this.centerNo ||index<this.topMaxNo+1){
+					obj.angle=obj.angle+180;
+				}else if(index===this.centerNo){
+					obj.angle =180;
+				}
+				
             //如果是光点往分散方向移动的类型
             }else{
+				//起点p0 
+				obj.endX= obj.startX;   
+                obj.endY= obj.offset;  
                 obj.startX = this.endX;                                                       
-                obj.startY = this.endY;             
-                obj.endX=0;
-                obj.endY=this.perHeight / 2 + this.perHeight * i;  
-        
+				obj.startY = this.endY;     
+				      
                 //计算斜率，得到点的切线方向，得到角度
-                obj.k = [(1 - this.radio) * (obj.controlY - obj.startY) + this.radio * (obj.endY - obj.controlY)] / [(1 - this.radio) * (this.controlX - obj.startX) + this.radio * (obj.endX - this.controlX)];
-               
+                obj.k =  [(1 - this.radio) * (obj.controlY - obj.startY) + this.radio * (obj.endY - obj.controlY)] / [(1 - this.radio) * (obj.controlX - obj.startX) + this.radio * (obj.endX - obj.controlX)];
                 //根据斜率，求得需要切斜的角度 单位为弧度，/0.017453293 转化为角度
-                obj.angle = Math.atan(obj.k) / 0.017453293+180; //根据斜率得到旋转角度，+180另外图标自身要换反方向
-            }
+				obj.angle = Math.atan(obj.k) / 0.017453293+90; //根据斜率得到旋转角度
+				console.log(obj.angle);
+				if(index<this.centerNo ||index<this.topMaxNo+1){
+					obj.angle=obj.angle+180;
+				}else if(index===this.centerNo){
+					obj.angle =0;
+				}
+			}
+			
              //根据比值this.radio变化计算点的坐标值；p=(1-this.radio)*(1-this.radio)p0+2*this.radio*(1-this.radio)*p1+this.radio*this.radio*p2;
-             obj.nowX = (1 - this.radio) * (1 - this.radio) * obj.startX + 2 * this.radio * (1 - this.radio) * this.controlX + this.radio * this.radio * obj.endX;
+             obj.nowX = (1 - this.radio) * (1 - this.radio) * obj.startX + 2 * this.radio * (1 - this.radio) * obj.controlX + this.radio * this.radio * obj.endX;
              obj.nowY = (1 - this.radio) * (1 - this.radio) * obj.startY + 2 * this.radio * (1 - this.radio) *obj.controlY + this.radio * this.radio * obj.endY;
-            $(this.element + ' .LineIcon:eq(' + i + ')').css({
+
+			 $(this.element + ' .LineIcon:eq(' + i + ')').css({
                 'left': obj.nowX - this.childWidth / 2,
                 'top': obj.nowY - this.childHeight / 2,
                 'transform': 'rotate(' + obj.angle + 'deg)'
