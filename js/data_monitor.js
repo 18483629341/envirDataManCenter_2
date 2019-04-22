@@ -1,4 +1,7 @@
 $(function () {
+	//自动滚动  
+	autoScrollFun('.scrollBox');
+
 	var pollNameList = [{
 		pollId: 21,
 		pollName: "监测中心站1"
@@ -19,10 +22,11 @@ $(function () {
 
 	
 	/* 左边曲线  */
-    bulgeDraw('InterfaceCallCanvas', 5);//draw(elementId,需要展示的曲线条数)
+    bulgeDraw('InterfaceCallCanvas', 5,200);//draw(elementId,需要展示的曲线条数,相lin)
     /* 左边曲线上所有的光点的方法对象  */
     var lightLoopLeft = new BulgeLightLoop('.InterfaceCallLightBox', 5, "converage");//converage 往集中方向
 })
+
 var serviceMonitorData={
 	typeArr:['空气自动监控数据', '地表水水质', '饮用水源地', '功能区噪声', '道路噪声', '空气预量', '空气质量评价'],
 	totalData:[440,434,402,438,480,560,530],
@@ -220,39 +224,81 @@ function selectToggle(elementClass) {
 
 
 
-//利用canvas绘制曲线
+
 /**
-* 
-* @param {*} elementId 绘制曲线的canvas的ID
-* @param {*} n         需要绘制曲线的数量
+* 利用canvas绘制曲线
+* @param {string} elementId 绘制曲线的canvas的ID
+* @param {number} n         需要绘制曲线的数量
+* @param {number} curveGap   曲线的间距
+
 */
-function bulgeDraw(elementId, n) {
-    var canvas = document.getElementById(elementId);
+function bulgeDraw(elementId, n,curveGap) {
+	var canvas = document.getElementById(elementId);
+	var context = canvas.getContext('2d');
     //var boxHeight=canvas.style.height;
     //设置或得到整个canvas的高度
    
-    var boxHeight = $('#' + elementId).height();         //canvas的高度 待完善
-    var boxWidth = $('#' + elementId).width();          //canvas的宽度 待完善
-    var perHeight = parseInt(boxHeight / n);
-    var centerY = parseInt(boxHeight / 2);
-    var centerNum=n/2;
-    var context = canvas.getContext('2d');
+    var boxHeight = $('#' + elementId).height();         
+	var boxWidth = $('#' + elementId).width();
+	var rectWidth=$('.rect-icon').width();
+	var perWidth = parseInt(boxWidth / n);
+	
+	var centerX = parseInt(boxWidth / 2); 
+	//数量是奇数，还是偶数
+	var numType=n%2===0?'偶数':'奇数';
+	
+	var topMaxNo=null;  
+	var centerNo=null;   
+	var bomMinNo=null;
+	if(numType=='奇数'){
+		centerNo=parseInt((n+1)/2);
+	}else{
+		topMaxNo=parseInt(n/2);
+		bomMinNo=parseInt(n/2+1);
+	}
 
-    //绘制2次贝塞尔曲线 
-    context.setLineDash([6, 6]);//设置线条为虚线的样式
+	//绘制2次贝塞尔曲线 
+	     
+	context.setLineDash([3, 3]);//设置线条为虚线的样式
+	
     for (var i = 0; i < n; i++) {
-		var startY = perHeight / 2 + perHeight * i;
-		if(i<=n/2){
-			
+		var index=i+1;//从1开始
+		var startX =null;
+		var offset=null;
+		var controlX=null;
+		if(numType==='奇数'){
+			if(index<centerNo){
+				offset=84;
+				startX= parseInt((index-1)*curveGap) + (rectWidth/2);
+				controlX=startX+curveGap*0.1;
+				console.log(index,parseInt((index-1)*curveGap),(rectWidth/2),startX);
+			}else if(index===centerNo){
+				offset=0;
+				startX=centerX;	
+				controlX=startX;
+			}else{
+				offset=84;
+				startX=boxWidth - parseInt((n-index)*curveGap) - (rectWidth/2).toFixed(1);
+				controlX=startX-curveGap*0.1;
+			}
+		}else{
+			if(index<=topMaxNo){
+				startX=parseInt(index*curveGap);
+				controlX=startX-curveGap*0.1;
+			}else{
+				startX=boxHeight-parseInt((n-index)*curveGap);
+				controlX=startX+curveGap*0.1;
+			}
 		}
-		var controlY=parseInt(centerY+perHeight/16*(i-n/2));
-		var offset=84;
+	
         context.beginPath();
-        context.moveTo(offset, startY); //曲线绘制的起点
-        //quadraticCurveTo(cpx,cpy,x,y)　　//cpx，cpy表示控制点的坐标,x，y表示终点坐标；
-        //曲线绘制的控制点位整个canvas
-        context.quadraticCurveTo(boxWidth-30, controlY, boxWidth, centerY);
-        context.strokeStyle = "#078dff";//设置贝塞尔曲线的颜色
+        context.moveTo(startX, offset); //曲线绘制的起点
+        //曲线绘制的控制点位整个canvas //quadraticCurveTo(cpx,cpy,x,y)　　cpx，cpy表示控制点的坐标,x，y表示终点坐标；
+        context.quadraticCurveTo(controlX, boxHeight-30, boxWidth/2, boxHeight);
+		context.strokeStyle = "#01efea";//设置贝塞尔曲线的颜色
+		if(numType==='奇数'&& index===centerNo){
+			context.strokeStyle = "#ffcc00";//设置贝塞尔曲线的颜色
+		}
         context.stroke();
     }
 }

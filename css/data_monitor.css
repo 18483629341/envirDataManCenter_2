@@ -412,37 +412,21 @@
 }
 .ManageContent .table .thead {
   color: #94b8ff;
+  background: #0d1345;
 }
 .ManageContent .table .thead tr {
   height: 45px;
-  padding: 0 30px;
 }
 .ManageContent .table .thead td {
   font-weight: 700;
-}
-.ManageContent .table .tbody tr:nth-child(odd) {
-  background: #111852;
 }
 .ManageContent .table .tbody td {
   font-size: 16px;
   color: #fff;
   border: none;
 }
-.ManageContent .table .tbody td:nth-child(1) {
-  width: 11%;
-}
-.ManageContent .table .tbody td:last-child {
-  width: 7.46%;
-}
 .ManageContent .table .tbody tr {
   height: 60px;
-}
-.ManageContent .table .tbody tr td:nth-child(1) {
-  text-align: left;
-  padding-left: 30px;
-}
-.ManageContent .table .tbody tr td:nth-child(2) {
-  font-weight: 700;
 }
 .ManageContent .table .tbody tr td:last-child {
   color: #00fff6;
@@ -451,6 +435,40 @@
 }
 .ManageContent .table .tbody tr td.abnormal {
   color: #ff7e00;
+}
+.ManageContent .table .tbody td,
+.ManageContent .table .thead td {
+  text-align: center;
+}
+.ManageContent .table .tbody td:nth-child(1),
+.ManageContent .table .thead td:nth-child(1) {
+  width: 25%;
+  text-align: left;
+  padding-left: 20px;
+}
+.ManageContent .table .tbody td:nth-child(2),
+.ManageContent .table .thead td:nth-child(2) {
+  width: 20%;
+}
+.ManageContent .table .tbody td:nth-child(3),
+.ManageContent .table .thead td:nth-child(3) {
+  width: 15%;
+}
+.ManageContent .table .tbody td:nth-child(4),
+.ManageContent .table .thead td:nth-child(4) {
+  width: 15%;
+}
+.ManageContent .table .tbody td:nth-child(5),
+.ManageContent .table .thead td:nth-child(5) {
+  min-width: 15%;
+}
+.ManageContent .table .tbody td:last-child,
+.ManageContent .table .thead td:last-child {
+  width: 7.5%;
+}
+.ManageContent .scrollBox {
+  height: 420px;
+  overflow: hidden;
 }
 /*header模块 公共样式*/
 .HeaderDiv {
@@ -522,36 +540,25 @@
 .ServiceContent .HotResList + .HotResList {
   margin-top: 50px;
 }
-.ServiceCanvas {
-  position: relative;
-}
-.ServiceCanvas .vain {
-  height: 110px;
-}
 .ServiceCanvas .LineList {
-  width: 224px;
-  height: 830px;
-  transform: rotate(90deg);
-  -webkit-transform: rotate(90deg);
-  transform-origin: 50%;
-  -webkit-transform-origin: center;
-  position: relative;
-  top: -410px;
-  left: 302px;
+  width: 830px;
+  height: 224px;
+  margin-top: 0;
 }
 .ServiceCanvas .QuadraticCurveBox {
-  width: 224px;
-  height: 830px;
+  width: 830px;
+  height: 224px;
   position: relative;
+  top: 132px;
 }
 .ServiceCanvas .QuadraticCurve {
-  width: 224px;
-  height: 830px;
+  width: 830px;
+  height: 224px;
   position: absolute;
 }
 .ServiceCanvas .LightBox {
   width: 100%;
-  height: 830px;
+  height: 224px;
   z-index: 2;
   position: relative;
 }
@@ -562,43 +569,64 @@
   background: url(../img/gu_dot.png) no-repeat;
   position: absolute;
 }
-.ServiceCanvas .IconBox {
-  position: absolute;
-  width: 100%;
-  height: 220px;
-  top: 0;
-  z-index: 2;
-}
 .ServiceCanvas .IconList {
   position: relative;
   width: 830px;
   height: 220px;
+  top: -222px;
+  z-index: 2;
 }
-.ServiceCanvas .IconList .RectIcon.gold {
+.ServiceCanvas .IconList .rect-icon {
+  position: absolute;
+  width: 116px;
+  height: 116px;
+  top: 100px;
+  left: 0;
+  background: url(../img/second_period/blue_bg.png) no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+}
+.ServiceCanvas .IconList .rect-icon .rectFont {
+  display: inline-block;
+  padding: 0 8px;
+  height: 26px;
+  line-height: 26px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #040e24;
+  background: #00fff6;
+  position: relative;
+  border-radius: 3px;
+  top: 44px;
+}
+.ServiceCanvas .IconList .rect-icon.gold {
   position: absolute;
   width: 132px;
   height: 132px;
   top: 0;
-  left: 344px;
+  left: 350px;
   background: url(../img/second_period/gold_bg.png) no-repeat;
   background-size: 100% 100%;
 }
-.ServiceCanvas .IconList .RectIcon {
-  position: absolute;
-  width: 95px;
-  height: 95px;
-  top: 135px;
-  left: 0;
-  background: url(../img/second_period/blue_bg.png) no-repeat;
-  background-size: 100% 100%;
+.ServiceCanvas .IconList .rect-icon.gold .rectFont {
+  padding: 0 10px;
+  height: 29px;
+  line-height: 29px;
+  font-size: 16px;
+  background: #ffae00;
+  position: relative;
+  border-radius: 5px;
+  top: 52px;
 }
-.ServiceCanvas .IconList .RectIcon:nth-child(2) {
+.ServiceCanvas .IconList .rect-icon:nth-child(2) {
   left: 200px;
 }
-.ServiceCanvas .IconList .RectIcon:nth-child(4) {
+.ServiceCanvas .IconList .rect-icon:nth-child(4) {
+  left: initial;
   right: 200px;
 }
-.ServiceCanvas .IconList .RectIcon:nth-child(5) {
+.ServiceCanvas .IconList .rect-icon:nth-child(5) {
+  left: initial;
   right: 0;
 }
 .LiContent {

@@ -27,7 +27,46 @@ function resize() {
 // 		   };
 // })();
 
+/**   
+ * 功能 鼠标进入时，停止滚动/鼠标离开时，自动滚动
+ * @param {string}  element 作用对象dom
+ */
+function autoScrollFun(element) {
+	var $this = $(element);
+	var scrollTimer;
+	$this.hover(function () {
+        console.log(1);
+		clearInterval(scrollTimer);
+	}, function () {
+		scrollTimer = setInterval(function () {
+            console.log(2);
+			scrollNews($this);
+		}, 2000);
+	}).trigger('mouseleave');	
+}
 
+/**  
+ * 功能 使某个容器自动滚动 
+ * @param {Object} obj  需要滚动的容器
+ */
+function scrollNews(obj) {
+	if (obj.find('.table').length) {
+		var $self = obj.find('.table');
+		//获得第一个tr的高度
+        var lineHeight = $self.find('tr:first').height();
+        console.log(lineHeight);
+		//并根据此高度向上移动
+		$self.animate({
+			'marginTop': -lineHeight + 'px'
+		}, 600, function () {
+			$self.css({
+				marginTop: 0
+				//恢复marginTop,将第一个tr元素，排列放置到末尾，达到循环播放的目的
+			}).find('tr:first').appendTo($self);
+
+		})
+	}
+}
 
 //利用canvas绘制曲线
 /**

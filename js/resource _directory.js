@@ -1,7 +1,8 @@
 $(function () {
 
     /* 仿滚动条 */
-	$(".InfoResContent").mCustomScrollbar();
+    $(".InfoResContent").mCustomScrollbar();
+    
 })
 $("body").on('click','.InfoRes',function(){
     $(this).addClass('active');

@@ -456,42 +456,25 @@
         text-align: center;
         .thead {
             color: #94b8ff;
+            background: #0d1345;
             tr {
                 height: 45px;
-                padding: 0 30px; // border: 1px solid red;
             }
             td{
                 font-weight: 700;
             }
         }
         .tbody {
-            tr:nth-child(odd) {
-                background: #111852;
-            } // tr:nth-child(even){
-            //     background: transparent;
-            // }
             td {
                 //width:20%;
                 font-size: 16px;
                 color: #fff;
                 border: none; //去除行列间的竖线
             }
-            td:nth-child(1){
-                width:11%;
-            }
-            td:last-child {
-                width:7.46%;
-            }
+           
             tr {
                 height: 60px; 
-                td:nth-child(1){
-                    text-align: left;
-                    padding-left: 30px;
-                }
-                td:nth-child(2) {
-                    font-weight: 700;
-                } // td:nth-child(4){
-                // }
+               
                 td:last-child {
                     color: @MainColor;
                     text-align: right;
@@ -502,6 +485,35 @@
                 }
             }
         }
+        .tbody,.thead{
+            td{
+                text-align: center;
+            }
+            td:nth-child(1){
+                width:25%;
+                text-align: left;
+                padding-left: 20px;
+            }
+            td:nth-child(2){
+                width:20%;  
+            }
+            td:nth-child(3){
+                width:15%;  
+            }
+            td:nth-child(4){
+                width:15%;  
+            }
+            td:nth-child(5){
+                min-width:15%;
+            }
+            td:last-child {
+                width:7.5%;
+            }
+        }
+    }
+    .scrollBox{
+        height:420px;
+        overflow: hidden;
     }
 }
 
@@ -585,36 +597,27 @@
     }
 }
 .ServiceCanvas{
-    position: relative;
-    // border: 1px solid red;
-    @lightBoxW:224px;//225px
-    @lightBoxH:830px;//830px
-    .vain{
-        height: 110px;
-    }
+    @lightBoxW:830px;
+    @lightBoxH:224px;
+
     .LineList{
-       
         width:@lightBoxW;
         height:@lightBoxH;
-        transform: rotate(90deg);
-        -webkit-transform: rotate(90deg);
-        transform-origin:50%;
-        -webkit-transform-origin:center;
-        position: relative;
-        top:-410px;
-        left:302px;
+        margin-top: 0;
     }
    
     .QuadraticCurveBox{
         width:@lightBoxW;
         height:@lightBoxH;
         position: relative;
+        top:132px;
         // border: 1px solid red;
     }
     .QuadraticCurve{
         width: @lightBoxW;
         height:@lightBoxH;
         position: absolute;
+
     }
     .LightBox{
         width: 100%;
@@ -629,42 +632,65 @@
         background: url(../img/gu_dot.png) no-repeat;
         position: absolute;
     }
-    .IconBox{
-        position: absolute;
-        width:100%;
-        height:220px;
-        top:0;
-        z-index: 2; 
-    }
+   
     .IconList{
         position: relative;
-        width:@lightBoxH;
+        width:@lightBoxW;
         height:220px;
-        .RectIcon.gold{
+        top: -222px;
+        z-index: 2; 
+        
+        .rect-icon{
+            position: absolute;
+            width:116px;
+            height:116px;
+            top: 100px;
+            left:0;
+            background: url(../img/second_period/blue_bg.png) no-repeat;
+            background-size:100% 100%; 
+            text-align: center;
+            .rectFont{
+                display: inline-block;
+                padding:0 8px;
+                height:26px;
+                line-height: 26px;
+                font-size:14px;
+                font-weight: 700;
+                color:#040e24;
+                background:#00fff6;
+                position: relative;
+                border-radius: 3px;
+                top:44px;
+            }
+        }
+        .rect-icon.gold{
             position: absolute;
             width:132px;
             height:132px;
             top: 0;
-            left:344px;
+            left:350px;
             background: url(../img/second_period/gold_bg.png) no-repeat;
             background-size:100% 100%; 
+            .rectFont{
+                padding:0 10px;
+                height:29px;
+                line-height: 29px;
+                font-size:16px;
+                background:#ffae00;
+                position: relative;
+                border-radius: 5px;
+                top:52px;
+            }
         }
-        .RectIcon{
-            position: absolute;
-            width:95px;
-            height:95px;
-            top: 135px;
-            left:0;
-            background: url(../img/second_period/blue_bg.png) no-repeat;
-            background-size:100% 100%; 
-        }
-        .RectIcon:nth-child(2){
+        .rect-icon:nth-child(2){
             left:200px;
         }
-        .RectIcon:nth-child(4){
+        .rect-icon:nth-child(4){
+            left:initial;
             right:200px;
         }
-        .RectIcon:nth-child(5){
+        .rect-icon:nth-child(5){
+            left:initial;
             right:0;
         }
     }
