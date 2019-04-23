@@ -88,21 +88,18 @@
   border-spacing: 0px;
   width: 95%;
   margin: 0 auto;
-  position: relative;
-  top: -50px;
+  z-index: 2;
 }
 .TableBox .table .thead {
   color: #413a3a;
+  background: #dfdfdf;
 }
 .TableBox .table .thead tr {
   height: 50px;
   padding: 0 30px;
 }
-.TableBox .table .tbody tr:nth-child(odd) {
-  background: #fff;
-}
-.TableBox .table .tbody tr:nth-child(even) {
-  background: #f6fafd;
+.TableBox .table .tbody tr {
+  height: 55px;
 }
 .TableBox .table .tbody td {
   width: 20%;
@@ -111,15 +108,33 @@
   font-weight: 700;
   border: none;
 }
-.TableBox .table .tbody tr {
-  height: 55px;
-}
+.TableBox .table .thead tr td:nth-child(1),
 .TableBox .table .tbody tr td:nth-child(1) {
   width: 10%;
 }
+.TableBox .table .thead tr td:nth-child(2),
 .TableBox .table .tbody tr td:nth-child(2) {
   width: 30%;
 }
+.TableBox .table .thead tr td:nth-child(3),
+.TableBox .table .tbody tr td:nth-child(3) {
+  width: 20%;
+}
+.TableBox .table .thead tr td:nth-child(4),
 .TableBox .table .tbody tr td:nth-child(4) {
+  width: 20%;
   color: #0096ff;
+}
+.TableBox .table .thead tr td:nth-child(5),
+.TableBox .table .tbody tr td:nth-child(5) {
+  width: 20%;
+}
+.TableBox .thead-table,
+.TableBox .scrollBox {
+  position: relative;
+  top: -50px;
+}
+.TableBox .scrollBox {
+  height: 440px;
+  overflow: hidden;
 }

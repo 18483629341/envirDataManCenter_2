@@ -96,26 +96,26 @@
         height: 50px;
         background: #dfdfdf;
     }
+    
     .table{
         border-spacing: 0px;
         width:95%;
         margin: 0 auto;
-        position: relative;
-        top:-50px;
+       
+        z-index: 2;
         .thead{
             color:#413a3a;
+            background: #dfdfdf;
             tr{
                 height:50px;
                 padding:0 30px;
+                
                 // border: 1px solid red;
             }
         }
         .tbody{
-            tr:nth-child(odd){
-                background: #fff;
-            }
-            tr:nth-child(even){
-                background: #f6fafd;
+            tr{
+                height: 55px;
             }
             td{
                 width:20%;
@@ -124,19 +124,35 @@
                 font-weight:700;
                 border:none;//去除行列间的竖线
             }
-           
+        }
+        .thead,.tbody{
             tr{
-                height: 55px;
+                
                 td:nth-child(1){
                     width:10%;
                 }
                 td:nth-child(2){
                     width:30%;
                 }
+                td:nth-child(3){
+                    width:20%;
+                }
                 td:nth-child(4){
+                    width:20%;
                     color: #0096ff;
+                }
+                td:nth-child(5){
+                    width:20%;
                 }
             }
         }
+    }
+    .thead-table,.scrollBox{ 
+        position: relative;
+        top:-50px;
+    }
+    .scrollBox{
+        height:440px;
+        overflow: hidden;
     }
 }

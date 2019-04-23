@@ -1,5 +1,6 @@
 $(function () {
-
+    //自动滚动  
+	autoScrollFun('.scrollBox');
     var echartsBar = echarts.init(document.getElementById('FixedResCanvas'));
     echartsBar.setOption(optionBar);
 })
