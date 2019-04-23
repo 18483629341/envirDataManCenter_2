@@ -562,15 +562,24 @@
   z-index: 2;
   position: relative;
 }
-.ServiceCanvas .LineIcon {
+.ServiceCanvas .line-icon {
   display: inline-block;
   width: 16px ;
   height: 43px;
   background: url(../img/second_period/blue_dot.png) no-repeat;
   position: absolute;
 }
-.ServiceCanvas .LineIcon.gold {
+.ServiceCanvas .line-icon.gold {
   background: url(../img/second_period/gold_dot.png) no-repeat;
+}
+.ServiceCanvas .bom-center {
+  width: 112px ;
+  height: 112px;
+  background: url(../img/second_period/sjfu_roll.png) no-repeat;
+  left: 359px;
+  top: 166px;
+  position: absolute;
+  z-index: 3;
 }
 .ServiceCanvas .IconList {
   position: relative;
@@ -584,7 +593,6 @@
   width: 116px;
   height: 116px;
   top: 100px;
-  left: 0;
   background: url(../img/second_period/blue_bg.png) no-repeat;
   background-size: 100% 100%;
   text-align: center;
@@ -602,35 +610,95 @@
   border-radius: 3px;
   top: 44px;
 }
-.ServiceCanvas .IconList .rect-icon.gold {
+.ServiceCanvas .IconList .rect-icon .tooltip-box {
+  left: 130px;
+}
+.ServiceCanvas .IconList .rect-icon.center {
   position: absolute;
   width: 132px;
   height: 132px;
   top: 0;
-  left: 350px;
-  background: url(../img/second_period/gold_bg.png) no-repeat;
-  background-size: 100% 100%;
 }
-.ServiceCanvas .IconList .rect-icon.gold .rectFont {
+.ServiceCanvas .IconList .rect-icon.center .rectFont {
   padding: 0 10px;
   height: 29px;
   line-height: 29px;
   font-size: 16px;
-  background: #ffae00;
   position: relative;
   border-radius: 5px;
   top: 52px;
 }
-.ServiceCanvas .IconList .rect-icon:nth-child(2) {
-  left: 200px;
+.ServiceCanvas .IconList .rect-icon:hover {
+  background: url(../img/second_period/gold_bg.png) no-repeat;
+  background-size: 100% 100%;
 }
-.ServiceCanvas .IconList .rect-icon:nth-child(4) {
-  left: initial;
-  right: 200px;
+.ServiceCanvas .IconList .rect-icon:hover .rectFont {
+  background: #ffae00;
 }
-.ServiceCanvas .IconList .rect-icon:nth-child(5) {
+.ServiceCanvas .IconList .rect-icon:hover .tooltip-box {
+  display: block;
+}
+.ServiceCanvas .IconList .rect-icon:last-child .tooltip-box {
   left: initial;
-  right: 0;
+  right: 130px;
+}
+.ServiceCanvas .IconList .rect-icon:last-child .tooltip-left {
+  width: 11px;
+  height: 100%;
+  background-image: url(../img/second_period/box_k_right.png);
+  transform: rotateY(180deg);
+  transform-origin: 50% 50%;
+}
+.ServiceCanvas .IconList .rect-icon:last-child .tooltip-right {
+  width: 13px;
+  height: 100%;
+  background-image: url(../img/second_period/box_k_left.png);
+  transform: rotateY(180deg);
+  transform-origin: 50% 50%;
+}
+.tooltip-box {
+  min-width: 200px;
+  height: 45px;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  position: relative;
+  top: -50px;
+  display: none;
+}
+.tooltip-box .tooltip-left {
+  float: left;
+  width: 13px;
+  height: 100%;
+  background-color: #0d1345;
+  background-image: url(../img/second_period/box_k_left.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.tooltip-box .tooltip-center {
+  float: left;
+  height: 100%;
+  background-color: #0d1345;
+  background-image: url(../img/second_period/box_k_center.png);
+  background-repeat: repeat;
+}
+.tooltip-box .tooltip-center .tooltip-p {
+  line-height: 45px;
+  color: #fff;
+  font-size: 16px;
+}
+.tooltip-box .tooltip-center .out-font {
+  font-weight: 700;
+  font-size: 14px;
+  color: #ffae00;
+  margin-right: 5px;
+}
+.tooltip-box .tooltip-right {
+  float: left;
+  width: 11px;
+  height: 100%;
+  background-color: #0d1345;
+  background-image: url(../img/second_period/box_k_right.png);
+  background-repeat: no-repeat;
 }
 .LiContent {
   margin: 6px;

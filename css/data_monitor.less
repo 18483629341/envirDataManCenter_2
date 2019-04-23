@@ -621,19 +621,28 @@
     }
     .LightBox{
         width: 100%;
-        height: @lightBoxH;
+        height:224px;
         z-index: 2;
         position: relative;
     }
-    .LineIcon{
+    .line-icon{
         display: inline-block;
         width:16px ;
         height:43px;
         background: url(../img/second_period/blue_dot.png) no-repeat;
         position: absolute;
     }
-    .LineIcon.gold{
+    .line-icon.gold{
         background: url(../img/second_period/gold_dot.png) no-repeat;
+    }
+    .bom-center{
+        width:112px ;
+        height:112px;
+        background: url(../img/second_period/sjfu_roll.png) no-repeat;
+        left:359px;
+        top:166px;
+        position: absolute;
+        z-index: 3;
     }
     .IconList{
         position: relative;
@@ -641,13 +650,11 @@
         height:220px;
         top: -222px;
         z-index: 2; 
-        
         .rect-icon{
             position: absolute;
             width:116px;
             height:116px;
             top: 100px;
-            left:0;
             background: url(../img/second_period/blue_bg.png) no-repeat;
             background-size:100% 100%; 
             text-align: center;
@@ -664,40 +671,109 @@
                 border-radius: 3px;
                 top:44px;
             }
+            .tooltip-box{
+                left: 130px;
+            }
         }
-        .rect-icon.gold{
+        .rect-icon.center{
             position: absolute;
             width:132px;
             height:132px;
             top: 0;
-            left:350px;
-            background: url(../img/second_period/gold_bg.png) no-repeat;
-            background-size:100% 100%; 
             .rectFont{
                 padding:0 10px;
                 height:29px;
                 line-height: 29px;
                 font-size:16px;
-                background:#ffae00;
                 position: relative;
                 border-radius: 5px;
                 top:52px;
             }
-            
         }
-        .rect-icon:nth-child(2){
-            left:200px;
+        .rect-icon:hover{
+            background: url(../img/second_period/gold_bg.png) no-repeat;
+            background-size:100% 100%; 
+            .rectFont{
+                background:#ffae00;
+            }
+            .tooltip-box{
+                display: block;
+            }
         }
-        .rect-icon:nth-child(4){
-            left:initial;
-            right:200px;
+       
+        .rect-icon:last-child{
+            .tooltip-box{
+                left:initial;
+                right: 130px;
+            }
+            .tooltip-left{
+                width:11px;
+                height:100%;
+                background-image: url(../img/second_period/box_k_right.png);
+                transform: rotateY(180deg);
+                transform-origin: 50% 50%;
+            } 
+            .tooltip-right{
+                width:13px;
+                height:100%;
+                background-image: url(../img/second_period/box_k_left.png) ;
+                transform:  rotateY(180deg);
+                transform-origin: 50% 50%;
+            }
         }
-        .rect-icon:nth-child(5){
-            left:initial;
-            right:0;
-        }
+        
     }
 }
+.tooltip-box{
+    min-width:200px;
+    height: 45px;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    position: relative;
+    top: -50px;
+    display: none;
+    .tooltip-left{
+        float: left;
+        width:13px;
+        height:100%;
+        background-color:#0d1345;
+        background-image: url(../img/second_period/box_k_left.png) ;
+        background-repeat:no-repeat;
+        background-size:100% 100%; 
+    }
+    .tooltip-center{
+        float: left;
+        height:100%;
+        background-color:#0d1345;
+        background-image: url(../img/second_period/box_k_center.png) ;
+        background-repeat:repeat;
+        .tooltip-p{
+            line-height: 45px;
+            color:#fff;
+            font-size: 16px;
+        }
+        .out-font{
+            font-weight: 700;
+            font-size: 14px;
+            color:#ffae00;
+            margin-right: 5px;
+        }
+    }
+    .tooltip-right{
+        float: left;
+        width:11px;
+        height:100%;
+        background-color:#0d1345;
+        background-image: url(../img/second_period/box_k_right.png) ;
+        background-repeat:no-repeat;
+    }
+}
+
+
+
+
+//热门资源列表
+
 .LiContent {
     margin: 6px;
     width: 201px;
