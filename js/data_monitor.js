@@ -22,7 +22,7 @@ $(function () {
 
     
 	/* 接口调用-绘制曲线组  */
-	bulgeDraw('InterfaceCallCanvas','.InterfaceCall', 5, 200,); //draw(elementId,需要展示的曲线条数,相lin)
+	bulgeDraw('InterfaceCallCanvas','.InterfaceCall',5, 200,); //draw(elementId,需要展示的曲线条数,相lin)
 	/* 接口调用-曲线上所有的光点的方法对象  */
 	var lightLoopLeft = new BulgeLightLoop('.InterfaceCallLightBox',5, 200, "spread"); //converage/spread 往集中方向/分散方向
 
@@ -261,13 +261,14 @@ function bulgeDraw(elementId,elementClass, n, curveGap) {
 	//绘制2次贝塞尔曲线 
 
 	context.setLineDash([3, 3]); //设置线条为虚线的样式
-	
+	$(elementClass+' .rect-icon').removeClass('center');
 	//循环展示各条曲线
 	for (var i = 0; i < n; i++) {
 		var index = i + 1; //从1开始
 		var startX = null;
 		var offset = 84;
 		var controlX = null;
+		
 		if (numType === '奇数') {
 			if (index < centerNo) {
 				startX = parseInt((index - 1) * curveGap) + (rectWidth / 2);
@@ -277,7 +278,7 @@ function bulgeDraw(elementId,elementClass, n, curveGap) {
 				offset = 0;
 				startX = centerX;
 				controlX = startX;
-				//$(elementClass+' .line-icon:eq('+i+')').addClass('gold');
+				$(elementClass).find('.rect-icon:eq('+i+')').addClass('center');
 				$(elementClass+' .rect-icon:eq('+i+')').css('left',centerX- ($(elementClass+' .rect-icon:eq('+i+')').width() / 2)+'px');
 			} else {
 				startX = boxWidth - parseInt((n - index) * curveGap) - (rectWidth / 2);
@@ -366,7 +367,6 @@ function BulgeLightLoop(element, n, curveGap, type) {
 	this.childWidth = $(this.element).children().width(); //移动点的子元素的宽度    
 	this.childHeight = $(this.element).children().height(); //移动点的子元素的高度
 	this.rectWidth = $('.rect-icon').width();
-	console.log(this);
 	//控制点p1统一为
 	this.controlY = this.boxHeight - 30; //离canvas做左侧的水平距离 统一为30；
 	//终点p2统一为右边终点

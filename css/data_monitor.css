@@ -581,6 +581,15 @@
   position: absolute;
   z-index: 3;
 }
+.ServiceCanvas .bom-font {
+  margin-top: 65px;
+  font-size: 18px;
+  font-weight: 700;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  color: #ffffff;
+}
 .ServiceCanvas .IconList {
   position: relative;
   width: 830px;
@@ -640,7 +649,7 @@
 }
 .ServiceCanvas .IconList .rect-icon:last-child .tooltip-box {
   left: initial;
-  right: 130px;
+  right: 170px;
 }
 .ServiceCanvas .IconList .rect-icon:last-child .tooltip-left {
   width: 11px;
@@ -662,14 +671,14 @@
   flex-direction: row;
   -webkit-flex-direction: row;
   position: relative;
-  top: -50px;
+  top: -30px;
   display: none;
+  background: #0d1345;
 }
 .tooltip-box .tooltip-left {
   float: left;
   width: 13px;
   height: 100%;
-  background-color: #0d1345;
   background-image: url(../img/second_period/box_k_left.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -677,7 +686,6 @@
 .tooltip-box .tooltip-center {
   float: left;
   height: 100%;
-  background-color: #0d1345;
   background-image: url(../img/second_period/box_k_center.png);
   background-repeat: repeat;
 }
@@ -696,7 +704,6 @@
   float: left;
   width: 11px;
   height: 100%;
-  background-color: #0d1345;
   background-image: url(../img/second_period/box_k_right.png);
   background-repeat: no-repeat;
 }
