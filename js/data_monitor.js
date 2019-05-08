@@ -22,16 +22,19 @@ $(function () {
 
     
 	/* 接口调用-绘制曲线组  */
-	bulgeDraw('InterfaceCallCanvas','.InterfaceCall',5, 200,); //draw(elementId,需要展示的曲线条数,相lin)
+	bulgeDraw('InterfaceCallCanvas','.InterfaceCall',5, 200); //draw(elementId,需要展示的曲线条数,相lin)
 	/* 接口调用-曲线上所有的光点的方法对象  */
-	var lightLoopLeft = new BulgeLightLoop('.InterfaceCallLightBox',5, 200, "spread"); //converage/spread 往集中方向/分散方向
-
+	lightLoopLeft = new BulgeLightLoop('.InterfaceCallLightBox',5, 200, "spread"); //converage/spread 往集中方向/分散方向
+    
 	/* 中间库交换-绘制曲线组  */
-	bulgeDraw('InterLibraryCallCanvas','.InterLibraryExchange', 4, 200,); //draw(elementId,需要展示的曲线条数,相lin)
+	bulgeDraw('InterLibraryCallCanvas','.InterLibraryExchange', 4, 200); //draw(elementId,需要展示的曲线条数,相lin)
 	/* 中间库交换-曲线上所有的光点的方法对象  */
-	var interLibraryLoopLeft = new BulgeLightLoop('.InterLibraryExcLightBox',4, 200, "spread"); //converage/spread 往集中方向/分散方向
+	interLibraryLoopLeft = new BulgeLightLoop('.InterLibraryExcLightBox',4, 200, "spread"); //converage/spread 往集中方向/分散方向
 })
 
+var lightLoopLeft=null;//接口调用-曲线上所有的光点的方法对象 
+var interLibraryLoopLeft=null;// 中间库交换-曲线上所有的光点的方法对象 
+  
 var serviceMonitorData = {
 	typeArr: ['空气自动监控数据', '地表水水质', '饮用水源地', '功能区噪声', '道路噪声', '空气预量', '空气质量评价'],
 	totalData: [440, 434, 402, 438, 480, 560, 530],
@@ -144,9 +147,30 @@ $("body").on('click', '.TabsDiv .TabSpan', function () {
 	$('.CardListDiv[data-theme=' + themeName + ']').siblings('.CardListDiv').css({
 		display: 'none'
 	});
+	
 
 })
 
+//主题数据。服务  tab点击切换事件
+$("body").on('click', '.LeftTabs .TabSpan', function () {
+	var themeName = $(this).attr('data-theme');
+	if(themeName==="Overall"){
+		bulgeDraw('InterfaceCallCanvas','.InterfaceCall',5, 200); 
+		lightLoopLeft.reset(5, 200, "spread");
+		bulgeDraw('InterLibraryCallCanvas','.InterLibraryExchange', 3, 200);
+		interLibraryLoopLeft.reset(3, 200, "spread");
+	}else if(themeName==="ResourceClassification"){
+		bulgeDraw('InterfaceCallCanvas','.InterfaceCall',4, 200); 
+		lightLoopLeft.reset(4, 200, "spread");
+		bulgeDraw('InterLibraryCallCanvas','.InterLibraryExchange',2, 200);
+		interLibraryLoopLeft.reset(2, 200, "spread");
+	}else if(themeName==="DepartmentalResources"){
+		bulgeDraw('InterfaceCallCanvas','.InterfaceCall',3, 200); 
+		lightLoopLeft.reset(3, 200, "spread");
+		bulgeDraw('InterLibraryCallCanvas','.InterLibraryExchange',1, 200);
+		interLibraryLoopLeft.reset(1, 200, "spread");
+	}
+})
 //主题数据。服务  tab点击切换事件
 $("body").on('click', '.HeaderDiv .TabSpan', function () {
 	$('.HeaderDiv .TabSpan').removeClass('active');
@@ -262,6 +286,10 @@ function bulgeDraw(elementId,elementClass, n, curveGap) {
 
 	context.setLineDash([3, 3]); //设置线条为虚线的样式
 	$(elementClass+' .rect-icon').removeClass('center');
+
+	//清楚之前所绘制内容
+	context.clearRect(0,0,boxWidth,boxHeight);
+	$(elementClass+' .rect-icon').css('left','-500px');
 	//循环展示各条曲线
 	for (var i = 0; i < n; i++) {
 		var index = i + 1; //从1开始
@@ -297,7 +325,7 @@ function bulgeDraw(elementId,elementClass, n, curveGap) {
 				$(elementClass+' .rect-icon:eq('+i+')').css('left',boxWidth - parseInt((n - index) * curveGap)-rectWidth+'px');
 			}
 		}
-       
+		
 		context.beginPath();
 		context.moveTo(startX, offset); //曲线绘制的起点
 		cruvePathArr.push([startX, offset,controlX]);
@@ -357,10 +385,37 @@ function bulgeDraw(elementId,elementClass, n, curveGap) {
  * @param {number} curveGap   曲线的间距
  * @param {string} direction     需要绘制曲线的方向,只能为 "converage"|'spread'
  */
-function BulgeLightLoop(element, n, curveGap, type) {
+function BulgeLightLoop(element,n, curveGap, type) {
+	//初始化初始值
 	this.element = element;
-	this.curveGap = curveGap;
-	this.type = type;
+	this.init=function(n, curveGap, type){
+		
+		this.curveGap = curveGap;
+		this.n=n;
+		this.type = type||"spread";
+		//数量是奇数，还是偶数
+		this.numType = this.n % 2 === 0 ? '偶数' : '奇数';
+		this.bomMinNo = null;
+		this.centerNo = null;
+		this.radio = 0; //贝塞尔曲线的比值
+		if (this.numType == '奇数') {
+			this.centerNo = parseInt((this.n + 1) / 2);
+		} else {
+			this.bomMinNo = parseInt(this.n / 2) + 1;
+		}
+		
+		
+	}
+	this.initLight=function(){
+		var listHtml='';
+		for(var i=0;i<this.n;i++){
+			var liHtml='<span class="line-icon "></span>';
+			listHtml+=liHtml;
+		}
+		$(this.element).html(listHtml);
+	}
+	this.init(n, curveGap, type);
+	this.initLight();
 	this.boxHeight = $(this.element).height()||224; //移动点的的高度  
 	this.boxWidth = $(this.element).width()||830; //移动点的父元素的的宽度
 	this.centerX = parseInt(this.boxWidth / 2);
@@ -372,21 +427,9 @@ function BulgeLightLoop(element, n, curveGap, type) {
 	//终点p2统一为右边终点
 	this.endX = this.boxWidth / 2;
 	this.endY = this.boxHeight; //垂直中心
-	this.radio = 0; //贝塞尔曲线的比值
 
-	//数量是奇数，还是偶数
-	this.numType = n % 2 === 0 ? '偶数' : '奇数';
-	
-	this.bomMinNo = null;
-	this.centerNo = null;
-
-	if (this.numType == '奇数') {
-		this.centerNo = parseInt((n + 1) / 2);
-	} else {
-		this.bomMinNo = parseInt(n / 2) + 1;
-	}
 	var _this = this;
-	var LightTurnOn = setInterval(function () {
+	var lightTurnOn = setInterval(function () {
 		_this.turn();
 	}, 40)
 	this.turn = function () {
@@ -395,7 +438,7 @@ function BulgeLightLoop(element, n, curveGap, type) {
 		} else {
 			this.radio = this.radio + 0.005;
 		}
-		for (var i = 0; i < n; i++) {
+		for (var i = 0; i < this.n; i++) {
 			var obj = {};
 			var index = i + 1; //从1开始
 			obj.startX = null;
@@ -410,7 +453,7 @@ function BulgeLightLoop(element, n, curveGap, type) {
 					obj.startX = this.centerX;
 					obj.controlX = obj.startX;
 				} else {
-					obj.startX = this.boxWidth - parseInt((n - index) * this.curveGap) - (this.rectWidth / 2);
+					obj.startX = this.boxWidth - parseInt((this.n - index) * this.curveGap) - (this.rectWidth / 2);
 					obj.controlX = obj.startX - this.curveGap * 0.1;
 				}
 			} else {
@@ -418,7 +461,7 @@ function BulgeLightLoop(element, n, curveGap, type) {
 					obj.startX = parseInt((index - 1) * this.curveGap) + (this.rectWidth / 2);
 					obj.controlX = obj.startX + this.curveGap * 0.1;
 				} else {
-					obj.startX = this.boxWidth - parseInt((n - index) * this.curveGap) - (this.rectWidth / 2);
+					obj.startX = this.boxWidth - parseInt((this.n - index) * this.curveGap) - (this.rectWidth / 2);
 					obj.controlX = obj.startX - this.curveGap * 0.1;
 				}
 			}
@@ -477,11 +520,23 @@ function BulgeLightLoop(element, n, curveGap, type) {
 	//重置光点移动方式
 	this.setType = function (newType) {
 		this.type = newType;
-		clearInterval(LightTurnOn);
+		clearInterval(lightTurnOn);
 		this.radio = 0; //重置曲线的绘制比值
-		LightTurnOn = setInterval(function () {
+		lightTurnOn = setInterval(function () {
 			_this.turn();
 		}, 40)
+	}
+	
+	//重置参数；
+	this.reset=function(n, curveGap, type){
+		
+		clearInterval(lightTurnOn);
+		_this.init(n, curveGap, type);
+		_this.initLight();
+		lightTurnOn = setInterval(function () {
+			_this.turn();
+		}, 40)
+		//console.log(this);
 	}
 
 }
